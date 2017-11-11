@@ -9,22 +9,102 @@
             <button class="ui button">Rider</button>
           </div>
         </div>
-
-        <div style="margin-bottom: 20px;" class="ui grid">
+        <div style="margin-bottom: 20px;" class="ui grid container">
           <div class="row">
-            <div class="five wide column">
+            <div style=" border-right: 2px solid lightgray;" class="five wide column">
               <label>Location</label>
+              <hr>
               {{> Text_Form_Control label="" placeholder="Radius" }}
+              <p>From</p>
               {{> Text_Form_Control label="" placeholder="Zipcode" }}
             </div>
-            <div class="six wide column">
+            <div style=" border-right: 2px solid lightgray;" class="six wide column">
               <label>Time</label>
-              {{> Text_Form_Control label="" placeholder="96XXX" }}
-              {{> Text_Form_Control label="" placeholder="10 miles" }}
+              <hr>
+              <div class="ui three column grid">
+                <div class="row">
+                  <div class="column">
+                    Going to UH Between
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <select class="ui fluid search dropdown" name="card[expire-month]">
+                        <option value="">Start</option>
+                        <option value="1">12:00 AM</option>
+                        <option value="2">1:00 AM</option>
+                        <option value="3">2:00 AM</option>
+                        <option value="4">3:00 AM</option>
+                        <option value="5">4:00 AM</option>
+                        <option value="6">5:00 AM</option>
+                        <option value="7">6:00 AM</option>
+                        <option value="8">7:00 AM</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <select class="ui fluid search dropdown" name="card[expire-month]">
+                      <option value="">End</option>
+                      <option value="1">12:00 AM</option>
+                      <option value="2">1:00 AM</option>
+                      <option value="3">2:00 AM</option>
+                      <option value="4">3:00 AM</option>
+                      <option value="5">4:00 AM</option>
+                      <option value="6">5:00 AM</option>
+                      <option value="7">6:00 AM</option>
+                      <option value="8">7:00 AM</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    Leaving UH Between
+                  </div>
+                  <div class="column">
+                    <select class="ui fluid search dropdown" name="card[expire-month]">
+                      <option value="">Start</option>
+                      <option value="1">12:00 AM</option>
+                      <option value="2">1:00 AM</option>
+                      <option value="3">2:00 AM</option>
+                      <option value="4">3:00 AM</option>
+                      <option value="5">4:00 AM</option>
+                      <option value="6">5:00 AM</option>
+                      <option value="7">6:00 AM</option>
+                      <option value="8">7:00 AM</option>
+                    </select>
+                  </div>
+                  <div class="column">
+                    <select class="ui fluid search dropdown" name="card[expire-month]">
+                      <option value="">End</option>
+                      <option value="1">12:00 AM</option>
+                      <option value="2">1:00 AM</option>
+                      <option value="3">2:00 AM</option>
+                      <option value="4">3:00 AM</option>
+                      <option value="5">4:00 AM</option>
+                      <option value="6">5:00 AM</option>
+                      <option value="7">6:00 AM</option>
+                      <option value="8">7:00 AM</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="five wide column">
+            <div style=" border-right: 2px solid lightgray;" class="five wide column">
               <label>Car Information</label>
-              {{> Text_Form_Control label="" placeholder="Seats" }}
+              <hr>
+              <div class="field">
+                <select class="ui fluid search dropdown" name="card[expire-month]">
+                  <option value="">Car Seats Available</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9+</option>
+                </select>
+              </div>
               {{> Checkbox_Field label="AC"}}
             </div>
           </div>
