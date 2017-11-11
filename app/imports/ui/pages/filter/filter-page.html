@@ -1,12 +1,36 @@
 <template name="Filter_Page">
   {{#if Template.subscriptionsReady}}
     <div style="margin-top: 10px" class="ui container">
-
       <form class="ui equal width form filter-data-form">
-        <div class="field">
-          {{> Select_Form_Control label="Interests" options=interests multiple=true }}
+        <div style="margin-bottom: 20px" class="ui centered grid">
+          <div class="ui large buttons">
+            <button class="ui button">Driver</button>
+            <div class="or"></div>
+            <button class="ui button">Rider</button>
+          </div>
         </div>
-        <button class="ui teal button" type="submit">Filter</button>
+
+        <div style="margin-bottom: 20px;" class="ui grid">
+          <div class="row">
+            <div class="five wide column">
+              <label>Location</label>
+              {{> Text_Form_Control label="" placeholder="Radius" }}
+              {{> Text_Form_Control label="" placeholder="Zipcode" }}
+            </div>
+            <div class="six wide column">
+              <label>Time</label>
+              {{> Text_Form_Control label="" placeholder="96XXX" }}
+              {{> Text_Form_Control label="" placeholder="10 miles" }}
+            </div>
+            <div class="five wide column">
+              <label>Car Information</label>
+              {{> Text_Form_Control label="" placeholder="Seats" }}
+              {{> Checkbox_Field label="AC"}}
+            </div>
+          </div>
+        </div>
+        <button class="ui green button" type="submit">Filter</button>
+
       </form>
 
       {{> Filter_Page_Directory profiles=profiles }}
@@ -14,3 +38,22 @@
     </div>
   {{/if}}
 </template>
+
+
+<!--Old filter page-->
+<!--<template name="Filter_Page">-->
+  <!--{{#if Template.subscriptionsReady}}-->
+    <!--<div style="margin-top: 10px" class="ui container">-->
+
+      <!--<form class="ui equal width form filter-data-form">-->
+        <!--<div class="field">-->
+          <!--{{> Select_Form_Control label="Interests" options=interests multiple=true }}-->
+        <!--</div>-->
+        <!--<button class="ui teal button" type="submit">Filter</button>-->
+      <!--</form>-->
+
+      <!--{{> Filter_Page_Directory profiles=profiles }}-->
+
+    <!--</div>-->
+  <!--{{/if}}-->
+<!--</template>-->
