@@ -108,13 +108,14 @@
               {{> Checkbox_Field label="AC"}}
             </div>
           </div>
+          <div class="row">
+            <div class="right aligned sixteen wide column">
+              <button class="ui green button" type="submit">Filter</button>
+            </div>
+          </div>
         </div>
-        <button class="ui green button" type="submit">Filter</button>
-
       </form>
-
       {{> Filter_Page_Directory profiles=profiles }}
-
     </div>
   {{/if}}
 </template>
