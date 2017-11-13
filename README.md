@@ -1,2 +1,2 @@
-# bowfolios
-Portfolios and networking for the University of Hawaii commnity.
+# Manoa Rides
+A Comprehensive Carpooling Application catering to the University of Hawaii at Manoa. 
