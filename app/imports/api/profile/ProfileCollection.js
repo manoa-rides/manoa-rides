@@ -1,6 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
-import { Interests } from '/imports/api/interest/InterestCollection';
+// import { Interests } from '/imports/api/interest/InterestCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
@@ -21,14 +21,11 @@ class ProfileCollection extends BaseCollection {
     super('Profile', new SimpleSchema({
       username: { type: String },
       // Remainder are optional
-      firstName: { type: String, optional: true },
-      lastName: { type: String, optional: true },
+      firstName: { type: String, optional: false },
+      lastName: { type: String, optional: false },
       bio: { type: String, optional: true },
-      interests: { type: Array, optional: true },
-      'interests.$': { type: String },
-      title: { type: String, optional: true },
+      driver: { type: Boolean, optional: false },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      github: { type: SimpleSchema.RegEx.Url, optional: true },
       facebook: { type: SimpleSchema.RegEx.Url, optional: true },
       instagram: { type: SimpleSchema.RegEx.Url, optional: true },
     }, { tracker: Tracker }));
@@ -55,26 +52,26 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '', github = '',
+  define({ firstName = '', lastName = '', username, bio = '', driver = false, picture = '',
       facebook = '', instagram = '' }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
       title: String };
-    check({ firstName, lastName, username, bio, picture, title }, checkPattern);
+    check({ firstName, lastName, username, bio, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    // Throw an error if any of the passed Interest names are not defined.
-    Interests.assertNames(interests);
+    // // Throw an error if any of the passed Interest names are not defined.
+    // Interests.assertNames(interests);
+    //
+    // // Throw an error if there are duplicates in the passed interest names.
+    // if (interests.length !== _.uniq(interests).length) {
+    //   throw new Meteor.Error(`${interests} contains duplicates`);
+    // }
 
-    // Throw an error if there are duplicates in the passed interest names.
-    if (interests.length !== _.uniq(interests).length) {
-      throw new Meteor.Error(`${interests} contains duplicates`);
-    }
-
-    return this._collection.insert({ firstName, lastName, username, bio, interests, picture, title, github,
+    return this._collection.insert({ firstName, lastName, username, bio, driver, picture,
       facebook, instagram });
   }
 
@@ -89,13 +86,11 @@ class ProfileCollection extends BaseCollection {
     const lastName = doc.lastName;
     const username = doc.username;
     const bio = doc.bio;
-    const interests = doc.interests;
+    const driver = doc.driver;
     const picture = doc.picture;
-    const title = doc.title;
-    const github = doc.github;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    return { firstName, lastName, username, bio, driver, picture, facebook, instagram };
   }
 }
 
