@@ -38,10 +38,7 @@ class ProfileCollection extends BaseCollection {
    *                   lastName: 'Johnson',
    *                   username: 'johnson',
    *                   bio: 'I have been a professor of computer science at UH since 1990.',
-   *                   interests: ['Application Development', 'Software Engineering', 'Databases'],
-   *                   title: 'Professor of Information and Computer Sciences',
    *                   picture: 'http://philipmjohnson.org/headshot.jpg',
-   *                   github: 'https://github.com/philipmjohnson',
    *                   facebook: 'https://facebook.com/philipmjohnson',
    *                   instagram: 'https://instagram.com/philipmjohnson' });
    * @param { Object } description Object with required key username.
