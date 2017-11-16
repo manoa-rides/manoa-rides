@@ -21,8 +21,9 @@ Template.Filter_Page.helpers({
     }
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
-    const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
-    return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    // const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    // return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
+    return allProfiles;
   },
 
   interests() {

@@ -9,6 +9,10 @@
           "description": "Techniques for development of high quality systems"
         },
         {
+          "name": "Ducks",
+          "description": "A set of ducks to be followed in computation"
+        },
+        {
           "name": "Algorithms",
           "description": "A set of rules to be followed in computation"
         },
@@ -89,6 +93,7 @@
           "firstName": "Lee",
           "lastName": "Altenberg",
           "username": "altenber",
+          "driver": false,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Evolutionary Computation"
@@ -100,6 +105,7 @@
           "firstName": "Kyungim",
           "lastName": "Baek",
           "username": "baek",
+          "driver": false,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Computer Vision"
@@ -111,6 +117,7 @@
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
+          "driver": false,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mobile Networks",
@@ -123,6 +130,7 @@
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
+          "driver": false,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mars",
@@ -136,6 +144,7 @@
           "lastName": "Casanova",
           "username": "henric",
           "github": "henricasanova",
+          "driver": false,
           "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Surfing",
