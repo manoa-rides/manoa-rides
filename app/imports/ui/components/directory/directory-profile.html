@@ -8,7 +8,11 @@
       </div>
       <div class="meta">
         <!--{{ profile.title}}-->
-        {{profile.driver}}
+        {{# if profile.driver}}
+          Driver
+        {{else}}
+          Rider
+        {{/if}}
       </div>
       <div class="description">
         <!--{{ profile.bio }}-->
