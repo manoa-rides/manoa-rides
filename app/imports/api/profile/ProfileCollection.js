@@ -3,7 +3,7 @@ import BaseCollection from '/imports/api/base/BaseCollection';
 // import { Interests } from '/imports/api/interest/InterestCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
-import { _ } from 'meteor/underscore';
+// import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
 
 /** @module Profile */
@@ -21,8 +21,8 @@ class ProfileCollection extends BaseCollection {
     super('Profile', new SimpleSchema({
       username: { type: String },
       // Remainder are optional
-      firstName: { type: String, optional: false },
-      lastName: { type: String, optional: false },
+      firstName: { type: String, optional: true },
+      lastName: { type: String, optional: true },
       bio: { type: String, optional: true },
       driver: { type: Boolean, optional: false },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -50,11 +50,11 @@ class ProfileCollection extends BaseCollection {
    * @returns The newly created docID.
    */
   define({ firstName = '', lastName = '', username, bio = '', driver = false, picture = '',
-      facebook = '', instagram = '' }) {
+           facebook = '', instagram = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String };
-    check({ firstName, lastName, username, bio, picture }, checkPattern);
+    const checkPattern = { username: String, firstName: String, lastName: String, bio: String,
+      driver: Boolean, picture: String };
+    check({ firstName, lastName, username, bio, driver, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -95,3 +95,4 @@ class ProfileCollection extends BaseCollection {
  * Provides the singleton instance of this class to all other entities.
  */
 export const Profiles = new ProfileCollection();
+
