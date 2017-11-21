@@ -4,21 +4,21 @@
       <form class="ui equal width form filter-data-form">
         <div style="margin-bottom: 20px" class="ui centered grid">
           <div class="ui large buttons">
-            <button class="ui button">Driver</button>
+            <button onClick="toggle_div_on('car')" class="ui button">Driver</button>
             <div class="or"></div>
-            <button class="ui button">Rider</button>
+            <button onClick="toggle_div_off('car')" class="ui button">Rider</button>
           </div>
         </div>
         <div style="margin-bottom: 20px;" class="ui grid container">
           <div class="row">
-            <div style=" border-right: 2px solid lightgray;" class="five wide column">
+            <div style=" border-right: 2px solid lightgray;" id="location" class="five wide column">
               <label>Location</label>
               <hr>
               {{> Text_Form_Control label="" placeholder="Radius" }}
               <p>From</p>
               {{> Text_Form_Control label="" placeholder="Zipcode" }}
             </div>
-            <div style=" border-right: 2px solid lightgray;" class="six wide column">
+            <div style=" border-right: 2px solid lightgray;" id="time" class="six wide column">
               <label>Time</label>
               <hr>
               <div class="ui three column grid">
@@ -127,7 +127,7 @@
                     </select>
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="card[expire-month]">
+                    <select class="ui fluid search dropdown" name="endTime">
                       <option value="">End</option>
                       <option value="1">12:00 AM</option>
                       <option value="2">1:00 AM</option>
@@ -160,11 +160,11 @@
                 </div>
               </div>
             </div>
-            <div class="five wide column">
+            <div id="car" class="five wide column">
               <label>Car</label>
               <hr>
               <div class="field">
-                <select class="ui fluid search dropdown" name="card[expire-month]">
+                <select class="ui fluid search dropdown" name="numberCarsSeats">
                   <option value="">Car Seats Available</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -191,6 +191,23 @@
       {{> Filter_Page_Directory profiles=profiles }}
     </div>
   {{/if}}
+  <script type="text/javascript">
+    function toggle_div_on(id)
+    {
+      var divelement = document.getElementById(id);
+      if(divelement.style.display == 'none')
+      {
+        divelement.style.display = 'block';
+      }else
+      {
+      }
+    }
+    function toggle_div_off(id)
+    {
+      var divelement = document.getElementById(id);
+      divelement.style.display = 'none';
+    }
+  </script>
 </template>
 
 
