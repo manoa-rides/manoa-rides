@@ -1,53 +1,49 @@
 <template name="Profile_Page">
+  {{#if Template.subscriptionsReady}}
+    <div class="ui text container segment">
+      <div class="ui dividing header">
+        Profile
+      </div>
+      <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
-{{#if Template.subscriptionsReady}}
+        <div class="fields">
+          {{> Text_Form_Control label="First" placeholder="John" value=profile.firstName errorMessage=(fieldError "firstName")}}
+          {{> Text_Form_Control label="Last" placeholder="Smith" value=profile.lastName errorMessage=(fieldError "lastName")}}
 
-  <div class="ui text container segment">
-    <div class="ui dividing header">
-      Profile
+        </div>
+
+        <div class="field">
+          {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
+          {{> Text_Form_Control label="Picture" placeholder="http://facebook/profile_picture.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+        </div>
+
+        <div class="field">
+          {{> Radio_Form_Control label="Role" options=interests errorMessage=(fieldError "interests") }}
+          <div class="ui small buttons">
+            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="ui green button">Driver</button>
+            <div class="or"></div>
+            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="ui green button">Rider</button>
+          </div>
+        </div>
+
+        <div class="fields">
+
+          {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
+          {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="johnsmith" value=profile.instagram errorMessage=(fieldError "instagram")}}
+
+
+        </div>
+
+        {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
+
+
+        <button class="ui green button" type="submit">Submit</button>
+        {{#if displaySuccessMessage}}
+          <div class="ui success message">
+            <p>Profile data successfully updated.</p>
+          </div>
+        {{/if}}
+      </form>
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
-
-      <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="John" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Smith" value=profile.lastName errorMessage=(fieldError "lastName")}}
-
-      </div>
-
-      <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Picture" placeholder="http://facebook/profile_picture.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
-      </div>
-
-      <div class="field">
-        {{> Radio_Form_Control label="Role" options=interests errorMessage=(fieldError "interests") }}
-        <div class="ui small buttons">
-          <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="ui green button">Driver</button>
-          <div class="or"></div>
-          <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="ui green button">Rider</button>
-        </div>
-      </div>
-
-      <div class="fields">
-
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="johnsmith" value=profile.instagram errorMessage=(fieldError "instagram")}}
-
-
-      </div>
-
-      {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
-
-
-      <button class="ui green button" type="submit">Submit</button>
-      {{#if displaySuccessMessage}}
-        <div class="ui success message">
-          <p>Profile data successfully updated.</p>
-        </div>
-      {{/if}}
-    </form>
-  </div>
-
   {{/if}}
-
 </template>
