@@ -1,63 +1,58 @@
 <template name="Landing_Page">
 
-  <div class="landing-section-1">
+  <div class="landing-background">
     <div class="ui grid">
-
       <div class="row">
-        <div class="ui right aligned sixteen wide column">
-          {{> Cas_Login }}
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="ui center aligned sixteen wide column">
-          <h1 class="landing-section-1-welcome">Welcome to BowFolios</h1>
-          <h3 class="landing-section-1-tagline">Professional portfolios and networking for the University of Hawaii community</h3>
+        <div class="ui huge center aligned sixteen wide column">
+          <h1 class="landing-section-1-welcome">Manoa Rides</h1>
+          <h2 class="landing-section-1-tagline">Carpooling for the UHM community by the UHM community</h2>
+          <h3></h3>
+          <div class="ui center aligned sixteen wide column">
+            <a class="ui primary button {{isActiveRoute "Login_Page"}} item" href="{{pathFor "Login_Page"}}">login</a>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 
-  <div class="landing-section-2">
-    <div class="ui grid">
-      <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/profile.png">
-      </div>
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Create your portfolio.</h1>
-        <h1 class="landing-section-header">Specify your interests.</h1>
-      </div>
+  <div class="ui borderless middlemenu menu">
+    <div class="ui grid container">
+      <a class="item">HOME</a>
+      <a class="item">LISTINGS</a>
+      <a class="item">PROFILE</a>
     </div>
   </div>
 
-  <div class="landing-section-3">
-    <div class="ui grid">
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Publish your portfolio in the BowFolio directory.</h1>
-      </div>
-      <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/directory.png">
-      </div>
+  <div class="landing message">
+    <div class="ui grid container">
+      <p class="landing-message">
+        Do you have trouble getting a ride to or from school?
+        <br />
+        Or perhaps you have a car but wish you could use the HOV lane, have access to carpooling parking, or maybe just sell a seat for breakfadt or coffee?
+        <br />
+        <br />
+        Well, if you answered "Yes!" to either of those questions, then Manoa Rides is for you!
+        This app seeks to pair drivers and riders who commute to and from the University of Hawaii at Manoa.
+        <br />
+        <br />
+        Once you create your profile (a UH email address will be required) then you can search for drivers, riders, or both that live near you!
+        <br />
+        <br />
+        Drivers and riders are encouraged to decide on their own forms of payment or incentive for the drivers to go out of their ways to pick up or drop off riders. Some drivers may be happy to offer their rides without addedd incentives, while others may ask for gasy money, snacks, or maybe a funny story!
+        <br />
+        <br />
+        View our "LISTINGS" to see who's around you!
+      </p>
     </div>
   </div>
 
-  <div class="landing-section-2">
-    <div class="ui grid">
-      <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/filter.png">
-      </div>
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Find UH community members with similar interests.</h1>
-      </div>
-    </div>
-  </div>
 
   <div class="landing-section-5">
     <div class="ui grid">
       <div class="ui center aligned sixteen wide column">
-        {{> Cas_Login size="large"}}
+        <a class="ui primary large button {{isActiveRoute "Login_Page"}} item" href="{{pathFor "Login_Page"}}">login</a>
       </div>
     </div>
   </div>
-
 </template>

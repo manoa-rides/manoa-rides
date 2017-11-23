@@ -1,7 +1,7 @@
-.landing-section-1 {
+.landing-background {
   padding: 10px 10px 30px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+  background-color: green;
+  color: white;
 }
 
 .landing-section-2 {
@@ -18,8 +18,8 @@
 
 .landing-section-5 {
   padding: 20px 10px 20px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+  background-color: green;
+  color: black;
 }
 
 
@@ -33,4 +33,15 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 36px;
+}
+
+.landing-message {
+  padding: 50px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.item {
+  font-size: 30px;
+  font-weight: 600;
 }
