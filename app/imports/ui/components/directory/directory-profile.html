@@ -1,48 +1,86 @@
 <template name="Directory_Profile">
-  <div class="item">
-    <a class="ui tiny image">
-      <img src="{{ profile.picture }}">
-    </a>
-    <div class="content">
-      <div class="header">
-        {{ profile.firstName }} {{ profile.lastName }}
-      </div>
-      <div class="meta">
-        {{# if profile.driver}}
+
+  {{# if profile.driver}}
+    <div class="item">
+      <a class="ui tiny image">
+        <img src="{{ profile.picture }}">
+      </a>
+      <div class="content">
+        <div class="header">
+          {{ profile.firstName }} {{ profile.lastName }}
+        </div>
+        <div class="meta">
           Driver
-        {{else}}
-          Rider
-        {{/if}}
-      </div>
-      <div class="description">
-        <!--{{ profile.bio }}-->
-        <div class="ui grid ">
-          <div class="column">
-            <div class="row">
-              2 miles Away
+        </div>
+        <div class="description">
+          <!--{{ profile.bio }}-->
+          <div class="ui grid ">
+            <div style="border-right: 2px solid lightgray;" class="six wide column">
+              <div class="row">
+                2 miles Away From 96782
+              </div>
+              <div class="row">
+                Departing to UH at 9:00 AM
+              </div>
+              <div class="row">
+                Returning from UH at 3:00 PM
+              </div>
             </div>
-            <div class="row">
-              Departing to UH at 9:00 AM
-            </div>
-            <div class="row">
-              Returning from UH at 3:00 PM
-            </div>
-            <div class="row">
-              Seats Available: 2
-            </div>
-            <div class="row">
-              Air Conditioning: Yes
+            <div class="six wide column">
+              <div class="row">
+                Seats Available: 2
+              </div>
+              <div class="row">
+                Air Conditioning: Yes
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div style="margin-top: 10px">
-        {{#each interest in profile.interests}}
-          <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
-        {{/each}}
-      </div>
+        <div style="margin-top: 10px">
+          {{#each interest in profile.interests}}
+            <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
+          {{/each}}
+        </div>
 
+      </div>
     </div>
-  </div>
+  {{else}}
+    <div class="item">
+      <a class="ui tiny image">
+        <img src="{{ profile.picture }}">
+      </a>
+      <div class="content">
+        <div class="header">
+          {{ profile.firstName }} {{ profile.lastName }}
+        </div>
+        <div class="meta">
+          Rider
+        </div>
+        <div class="description">
+          <!--{{ profile.bio }}-->
+          <div class="ui grid ">
+            <div class="six wide column">
+              <div class="row">
+                2 miles Away From 96782
+              </div>
+              <div class="row">
+                Departing to UH at 9:00 AM
+              </div>
+              <div class="row">
+                Returning from UH at 3:00 PM
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 10px">
+          {{#each interest in profile.interests}}
+            <a style="margin-bottom: 2px" class="ui teal tag small label">{{interest}}</a>
+          {{/each}}
+        </div>
+
+      </div>
+    </div>
+  {{/if}}
+
 
 </template>

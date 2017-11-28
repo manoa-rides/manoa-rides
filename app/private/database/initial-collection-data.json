@@ -117,7 +117,7 @@
           "firstName": "Edo",
           "lastName": "Biagioni",
           "username": "esb",
-          "driver": false,
+          "driver": true,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mobile Networks",
@@ -130,7 +130,7 @@
           "firstName": "Kim",
           "lastName": "Binsted",
           "username": "binsted",
-          "driver": false,
+          "driver": true,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mars",
