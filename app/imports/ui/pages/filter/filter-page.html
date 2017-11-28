@@ -350,6 +350,8 @@
       {{> Filter_Page_Directory profiles=profiles }}
     </div>
   {{/if}}
+
+  <!--Script to switch between Driver and Rider Search Tools-->
   <script type="text/javascript">
     function toggle_div_on(id)
     {
@@ -368,22 +370,3 @@
     }
   </script>
 </template>
-
-
-<!--Old filter page-->
-<!--<template name="Filter_Page">-->
-    <!--{{#if Template.subscriptionsReady}}-->
-<!--<div style="margin-top: 10px" class="ui container">-->
-
-<!--<form class="ui equal width form filter-data-form">-->
-<!--<div class="field">-->
-<!--{{> Select_Form_Control label="Interests" options=interests multiple=true }}-->
-<!--</div>-->
-<!--<button class="ui teal button" type="submit">Filter</button>-->
-<!--</form>-->
-
-<!--{{> Filter_Page_Directory profiles=profiles }}-->
-
-<!--</div>-->
-    <!--{{/if}}-->
-<!--</template>-->
