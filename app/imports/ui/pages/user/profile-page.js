@@ -1,5 +1,4 @@
 import { Template } from 'meteor/templating';
-import { Session } from 'meteor/session';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
@@ -14,19 +13,20 @@ const riderButtonClicked = 'riderButtonClicked';
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
-  this.sessionFlags = new Session();
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
+  this.messageFlags.set(driverButtonClicked, true);
+  this.messageFlags.set(riderButtonClicked, false);
   this.context = Profiles.getSchema().namedContext('Profile_Page');
 });
 
 Template.Profile_Page.helpers({
   driverButtonClicked() {
-    return Template.instance().sessionFlags.get(driverButtonClicked);
+    return Template.instance().messageFlags.get(driverButtonClicked);
   },
   riderButtonClicked() {
-    return Template.instance().sessionFlags.get(riderButtonClicked);
+    return Template.instance().messageFlags.get(riderButtonClicked);
   },
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
@@ -88,13 +88,13 @@ Template.Profile_Page.events({
   },
   'click #driver_button'(event, instance) {
     event.preventDefault();
-    instance.sessionFlags.set(driverButtonClicked, true);
-    instance.sessionFlags.set(riderButtonClicked, false);
+    instance.messageFlags.set(driverButtonClicked, true);
+    instance.messageFlags.set(riderButtonClicked, false);
   },
   'click #rider_button'(event, instance) {
     event.preventDefault();
-    instance.sessionFlags.set(driverButtonClicked, false);
-    instance.sessionFlags.set(riderButtonClicked, true);
+    instance.messageFlags.set(driverButtonClicked, false);
+    instance.messageFlags.set(riderButtonClicked, true);
   },
 });
 
