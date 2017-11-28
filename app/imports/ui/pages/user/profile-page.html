@@ -17,15 +17,6 @@
           {{> Text_Form_Control label="Picture" placeholder="http://facebook/profile_picture.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
         </div>
 
-        <div class="field">
-          {{> Radio_Form_Control label="Role" options=interests errorMessage=(fieldError "interests") }}
-          <div class="ui small buttons">
-            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="ui green button">Driver</button>
-            <div class="or"></div>
-            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="ui green button">Rider</button>
-          </div>
-        </div>
-
         <div class="fields">
 
           {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
@@ -36,6 +27,35 @@
 
         {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
 
+        <div class="ui small buttons" style="margin: 2em 0em 2em 0em">
+          <button id="driver_button" class="ui green button">Driver</button>
+          <div class="or"></div>
+          <button id="rider_button" class="ui green button">Rider</button>
+        </div>
+
+        {{#if driverButtonClicked}}
+        <div id="driver_field">
+          <div class="fields">
+            {{> Text_Form_Control label="Car Model" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+            {{> Select_Form_Control label="Years Owned" placeholder="3" value=profile.year errorMessage=(fieldError "year")}}
+          </div>
+          <div class="fields">
+            {{> Select_Form_Control label="Number of Seats" placeholder="5" value=profile.seats errorMessage=(fieldError "seats")}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if riderButtonClicked}}
+        <div id="rider_field">
+          <div class="fields">
+            {{> Text_Form_Control label="" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+            {{> Select_Form_Control label="Years Owned" placeholder="3" value=profile.year errorMessage=(fieldError "year")}}
+          </div>
+          <div class="fields">
+            {{> Select_Form_Control label="Number of Seats" placeholder="5" value=profile.seats errorMessage=(fieldError "seats")}}
+          </div>
+        </div>
+        {{/if}}
 
         <button class="ui green button" type="submit">Submit</button>
         {{#if displaySuccessMessage}}

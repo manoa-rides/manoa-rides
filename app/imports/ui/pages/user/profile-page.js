@@ -7,6 +7,8 @@ import { Interests } from '/imports/api/interest/InterestCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
+let driverField = true;
+let riderField = false;
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
@@ -18,6 +20,12 @@ Template.Profile_Page.onCreated(function onCreated() {
 });
 
 Template.Profile_Page.helpers({
+  driverButtonClicked() {
+    return driverField;
+  },
+  riderButtonClicked() {
+    return riderField;
+  },
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },
@@ -75,6 +83,16 @@ Template.Profile_Page.events({
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }
+  },
+  'click #driver_button'(event) {
+    event.preventDefault();
+    driverField = true;
+    riderField = false;
+  },
+  'click #rider_button'(event) {
+    event.preventDefault();
+    driverField = false;
+    riderField = true;
   },
 });
 
