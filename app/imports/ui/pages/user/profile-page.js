@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Session } from 'meteor/session';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
@@ -7,12 +8,13 @@ import { Interests } from '/imports/api/interest/InterestCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
-let driverField = true;
-let riderField = false;
+const driverButtonClicked = 'driverButtonClicked';
+const riderButtonClicked = 'riderButtonClicked';
 
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.sessionFlags = new Session();
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
@@ -21,10 +23,10 @@ Template.Profile_Page.onCreated(function onCreated() {
 
 Template.Profile_Page.helpers({
   driverButtonClicked() {
-    return driverField;
+    return Template.instance().sessionFlags.get(driverButtonClicked);
   },
   riderButtonClicked() {
-    return riderField;
+    return Template.instance().sessionFlags.get(riderButtonClicked);
   },
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
@@ -84,15 +86,15 @@ Template.Profile_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
-  'click #driver_button'(event) {
+  'click #driver_button'(event, instance) {
     event.preventDefault();
-    driverField = true;
-    riderField = false;
+    instance.sessionFlags.set(driverButtonClicked, true);
+    instance.sessionFlags.set(riderButtonClicked, false);
   },
-  'click #rider_button'(event) {
+  'click #rider_button'(event, instance) {
     event.preventDefault();
-    driverField = false;
-    riderField = true;
+    instance.sessionFlags.set(driverButtonClicked, false);
+    instance.sessionFlags.set(riderButtonClicked, true);
   },
 });
 
