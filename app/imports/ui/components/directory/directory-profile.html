@@ -2,12 +2,13 @@
 
   {{# if profile.driver}}
     <div class="item">
-      <a class="ui tiny image">
+      <a class="ui small circular image">
+
         <img src="{{ profile.picture }}">
       </a>
       <div class="content">
         <div class="header">
-          {{ profile.firstName }} {{ profile.lastName }}
+          <i class="car icon"></i> {{ profile.firstName }} {{ profile.lastName }}
         </div>
         <div class="meta">
           Driver
@@ -46,12 +47,12 @@
     </div>
   {{else}}
     <div class="item">
-      <a class="ui tiny image">
+      <a class="ui small circular image">
         <img src="{{ profile.picture }}">
       </a>
       <div class="content">
         <div class="header">
-          {{ profile.firstName }} {{ profile.lastName }}
+          <i class="male icon"></i> {{ profile.firstName }} {{ profile.lastName }}
         </div>
         <div class="meta">
           Rider
@@ -80,6 +81,4 @@
       </div>
     </div>
   {{/if}}
-
-
 </template>
