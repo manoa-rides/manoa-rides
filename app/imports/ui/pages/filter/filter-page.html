@@ -4,12 +4,12 @@
       <form class="ui equal width form filter-data-form">
         <div style="margin-bottom: 20px" class="ui centered grid">
           <div class="ui large buttons">
-            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="ui button">Driver</button>
+            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="choose-driver ui button">Driver</button>
             <div class="or"></div>
-            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="ui button">Rider</button>
+            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="choose-rider ui button">Rider</button>
           </div>
         </div>
-        <div style="display: none; margin-bottom: 20px;" id="riderRow" class="ui grid container">
+        <div  id="riderRow" style="display: none; margin-bottom: 20px;" class="ui grid container">
           <div class="row">
             <div style=" border-right: 2px solid lightgray;" id="location" class="eight wide column">
               <label>Location</label>
@@ -342,7 +342,7 @@
           </div>
           <div class="row">
             <div class="right aligned sixteen wide column">
-              <button class="filter ui green button" type="submit">Filter</button>
+              <button class="filter ui green button">Filter</button>
             </div>
           </div>
         </div>
