@@ -106,6 +106,7 @@
           "lastName": "Baek",
           "username": "baek",
           "driver": false,
+          "seats": 10,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Computer Vision"
@@ -118,6 +119,7 @@
           "lastName": "Biagioni",
           "username": "esb",
           "driver": true,
+          "seats": 5,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mobile Networks",
@@ -131,6 +133,7 @@
           "lastName": "Binsted",
           "username": "binsted",
           "driver": true,
+          "seats": 1,
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mars",
@@ -145,6 +148,7 @@
           "username": "henric",
           "github": "henricasanova",
           "driver": false,
+          "seats": 0,
           "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Surfing",

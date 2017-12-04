@@ -323,18 +323,7 @@
               <label>Car</label>
               <hr>
               <div class="field">
-                <select class="ui fluid search dropdown" name="numberCarsSeats">
-                  <option value="">Car Seats Available</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9+</option>
-                </select>
+                {{> Select_Form_Control name="carSeats" label="Car Seats Available" options=seatOptions multiple=false }}
               </div>
               <div style="padding-top: 20px;"></div>
               {{> Checkbox_Field label="Air Conditioned"}}

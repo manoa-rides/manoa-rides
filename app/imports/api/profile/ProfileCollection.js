@@ -25,6 +25,7 @@ class ProfileCollection extends BaseCollection {
       lastName: { type: String, optional: true },
       bio: { type: String, optional: true },
       driver: { type: Boolean, optional: false },
+      seats: { type: Number, optional: false },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
       facebook: { type: SimpleSchema.RegEx.Url, optional: true },
       instagram: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -49,12 +50,12 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', driver = false, picture = '',
+  define({ firstName = '', lastName = '', username, bio = '', driver = false, seats = 0, picture = '',
            facebook = '', instagram = '' }) {
     // make sure required fields are OK.
     const checkPattern = { username: String, firstName: String, lastName: String, bio: String,
-      driver: Boolean, picture: String };
-    check({ firstName, lastName, username, bio, driver, picture }, checkPattern);
+      driver: Boolean, seats: Number, picture: String };
+    check({ firstName, lastName, username, bio, driver, seats, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -68,7 +69,7 @@ class ProfileCollection extends BaseCollection {
     //   throw new Meteor.Error(`${interests} contains duplicates`);
     // }
 
-    return this._collection.insert({ firstName, lastName, username, bio, driver, picture,
+    return this._collection.insert({ firstName, lastName, username, bio, driver, seats, picture,
       facebook, instagram });
   }
 
@@ -84,10 +85,11 @@ class ProfileCollection extends BaseCollection {
     const username = doc.username;
     const bio = doc.bio;
     const driver = doc.driver;
+    const seats = doc.seats;
     const picture = doc.picture;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, driver, picture, facebook, instagram };
+    return { firstName, lastName, username, bio, driver,seats, picture, facebook, instagram };
   }
 }
 
