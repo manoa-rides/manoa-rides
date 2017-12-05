@@ -6,6 +6,7 @@ import { Interests } from '/imports/api/interest/InterestCollection';
 
 const selectedDriver = 'seletedDriverOrRider';
 const selectedSeats = 'selectedSeats';
+const selectedZipcode = 'selectedZipcode';
 
 
 Template.Filter_Page.onCreated(function onCreated() {
@@ -14,6 +15,7 @@ Template.Filter_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(selectedDriver, undefined);
   this.messageFlags.set(selectedSeats, undefined);
+  this.messageFlags.set(selectedZipcode, undefined);
 });
 
 Template.Filter_Page.helpers({
@@ -22,6 +24,7 @@ Template.Filter_Page.helpers({
     let profiles = null;
     let selectedD = Template.instance().messageFlags.get(selectedDriver);
     let selectedNumSeats = Template.instance().messageFlags.get(selectedSeats);
+    let selectedZip = Template.instance().messageFlags.get(selectedZipcode);
 
     if(selectedD === undefined) {
       selectedD = true;
@@ -30,6 +33,13 @@ Template.Filter_Page.helpers({
       profiles =  _.filter(allProfiles, function (profile) { if (profile.driver === true) { return profile; } });
       if (selectedNumSeats === undefined) {
         selectedNumSeats = 1;
+      }
+      console.log("selectedZip " + selectedZip);
+      if(selectedZip !== '' && selectedZip !== undefined) {
+        console.log("selectedZip " + selectedZip);
+        const zipProfiles = _.filter(profiles,
+            function (profile) { if (profile.zipcode === selectedZip) { return profile; } });
+        profiles = zipProfiles;
       }
       const seatProfiles = _.filter(profiles,
           function (profile) { if (profile.seats >= selectedNumSeats) { return profile; } });
@@ -51,6 +61,7 @@ Template.Filter_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     instance.messageFlags.set(selectedSeats, event.target.carSeats.value);
+    instance.messageFlags.set(selectedZipcode, event.target.zipcode.value);
   },
   'click .choose-driver'(event, instance) {
     event.preventDefault();
