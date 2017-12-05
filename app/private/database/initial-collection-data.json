@@ -94,6 +94,8 @@
           "lastName": "Altenberg",
           "username": "altenber",
           "driver": false,
+          "seats": 10,
+          "zipcode": "96323",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Evolutionary Computation"
@@ -105,8 +107,9 @@
           "firstName": "Kyungim",
           "lastName": "Baek",
           "username": "baek",
-          "driver": false,
+          "driver": true,
           "seats": 10,
+          "zipcode": "96222",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Computer Vision"
@@ -120,6 +123,7 @@
           "username": "esb",
           "driver": true,
           "seats": 5,
+          "zipcode": "96772",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mobile Networks",
@@ -134,6 +138,7 @@
           "username": "binsted",
           "driver": true,
           "seats": 1,
+          "zipcode": "96782",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Mars",
@@ -149,6 +154,7 @@
           "github": "henricasanova",
           "driver": false,
           "seats": 0,
+          "zipcode": "96777",
           "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
             "Surfing",
