@@ -56,15 +56,15 @@
         {{/if}}
 
         {{#if riderButtonClicked}}
-        <div id="rider_field">
-          <div class="field">
-            {{> Text_Form_Control label="Car Model Preference" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+          <div id="rider_field">
+            <div class="field">
+              {{> Text_Form_Control label="Car Model Preference" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+            </div>
+            <div class="fields">
+              {{> Select_Form_Control label="Max Car Age" placeholder="5" options=numbers value=profile.year errorMessage=(fieldError "year")}}
+              {{> Select_Form_Control label="Max Accidents" placeholder="2" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
+            </div>
           </div>
-          <div class="fields">
-            {{> Select_Form_Control label="Max Car Age" placeholder="5" options=numbers value=profile.year errorMessage=(fieldError "year")}}
-            {{> Select_Form_Control label="Max Accidents" placeholder="2" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
-          </div>
-        </div>
         {{/if}}
 
         <button class="ui green button" type="submit">Submit</button>

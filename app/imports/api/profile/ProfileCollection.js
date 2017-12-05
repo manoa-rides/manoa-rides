@@ -24,7 +24,7 @@ class ProfileCollection extends BaseCollection {
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      phone: { type: String, optional: true },
+      phone: { type: String, optional: true, regEx: /^\d{3}-\d{3}-\d{4}$/ },
       zipcode: { type: String, optional: true },
       facebook: { type: SimpleSchema.RegEx.Url, optional: true },
       instagram: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -58,11 +58,9 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', driver = false, seats = 0, zipcode = '', picture = '',
-           facebook = '', instagram = '' }) {
+  define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '', zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false, car = '', seats = 0, owned = 0, accidents = 0 }) {
     // make sure required fields are OK.
-    const checkPattern = { username: String, firstName: String, lastName: String, bio: String,
-      driver: Boolean, seats: Number, zipcode: String, picture: String };
+    const checkPattern = { username: String, firstName: String, lastName: String, phone: String, zipcode: String, driver: Boolean, car: String, seats: Number, };
     check({ firstName, lastName, username, bio, driver, seats, zipcode, picture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
@@ -77,8 +75,7 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, bio, driver, seats, zipcode, picture,
-      facebook, instagram });
+    return this._collection.insert({ firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, seats, owned, accidents, username });
   }
 
   /**
@@ -90,15 +87,20 @@ class ProfileCollection extends BaseCollection {
     const doc = this.findDoc(docID);
     const firstName = doc.firstName;
     const lastName = doc.lastName;
-    const username = doc.username;
-    const bio = doc.bio;
-    const driver = doc.driver;
-    const seats = doc.seats;
-    const zipcode = doc.zipcode;
     const picture = doc.picture;
+    const zipcode = doc.zipcode;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, driver, seats, zipcode, picture, facebook, instagram };
+    const snapchat = doc.snapchat;
+    const interests = doc.interests;
+    const bio = doc.bio;
+    const driver = doc.driver;
+    const car = doc.car;
+    const seats = doc.seats;
+    const owned = doc.owned;
+    const accidents = doc.accidents;
+    const username = doc.username;
+    return { firstName, lastName, picture, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, seats, owned, accidents, username };
   }
 }
 
