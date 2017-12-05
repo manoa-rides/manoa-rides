@@ -48,13 +48,11 @@ Template.Profile_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
-  years() {
+  numbers() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
-    const selectedYear = profile;
-    return profile && _.map(Interests.findAll(),
-        function makeInterestObject(interest) {
-          return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
-        });
+    return profile && [{ label: '1', selected: false }, { label: '2', selected: false }, { label: '3',
+      selected: false }, { label: '4', selected: false }, { label: '5', selected: false },
+      { label: '6', selected: false }, { label: '7', selected: false }, { label: '8+', selected: false }];
   },
 });
 
@@ -64,17 +62,23 @@ Template.Profile_Page.events({
     event.preventDefault();
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
-    const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
+    const phone = event.target.Phone.value;
+    const zipcode = event.target.ZipCode.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
-    const bio = event.target.Bio.value;
+    const snapchat = event.target.Snapchat.value;
     const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     const interests = _.map(selectedInterests, (option) => option.value);
+    const bio = event.target.Bio.value;
+    const driver = instance.messageFlags.get(driverButtonClicked);
+    const car = event.target.Car.value;
+    const seats = event.target.Seats.value;
+    const owned = event.target.Owned.value;
+    const accidents = event.target.Accidents.value;
+    const username = FlowRouter.getParam('username'); // schema requires username.
 
-    const updatedProfileData = { firstName, lastName, title, picture, facebook, instagram, bio, interests,
-      username };
+    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, accidents, username };
 
     // Clear out any old validation errors.
     instance.context.reset();

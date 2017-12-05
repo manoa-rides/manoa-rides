@@ -16,13 +16,14 @@
         </div>
 
         <div class="fields">
-          {{> Text_Form_Control label="Student ID" placeholder="1234-5678" value=profile.id errorMessage=(fieldError "id")}}
           {{> Text_Form_Control label="Phone" placeholder="808-123-4567" value=profile.phone errorMessage=(fieldError "phone")}}
+          {{> Text_Form_Control label="ZipCode" placeholder="96821" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
         </div>
 
         <div class="fields">
           {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
           {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="johnsmith" value=profile.instagram errorMessage=(fieldError "instagram")}}
+          {{> Social_Network_Form_Control label="Snapchat" icon="snapchat" placeholder="johnsmith" value=profile.snapchat errorMessage=(fieldError "snapchat")}}
         </div>
 
         <div class="field">
@@ -33,20 +34,22 @@
           {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
         </div>
 
-        <div class="ui small buttons" style="margin: 10em 0em 10em 0em">
-          <button id="driver_button" class="ui green button">Driver</button>
-          <div class="or"></div>
-          <button id="rider_button" class="ui green button">Rider</button>
+        <div class="field">
+          <div class="ui small buttons">
+            <button id="driver_button" class="ui green button">Driver</button>
+            <div class="or"></div>
+            <button id="rider_button" class="ui green button">Rider</button>
+          </div>
         </div>
 
         {{#if driverButtonClicked}}
         <div id="driver_field">
           <div class="fields">
             {{> Text_Form_Control label="Car Model" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
-            {{> Select_Form_Control label="Years Owned" placeholder="3" options=numbers multiple=false value=profile.year errorMessage=(fieldError "year")}}
+            {{> Select_Form_Control label="Number of Seats" placeholder="5" options=numbers multiple=false value=profile.seats errorMessage=(fieldError "seats")}}
           </div>
           <div class="fields">
-            {{> Select_Form_Control label="Number of Seats" placeholder="5" options=numbers multiple=false value=profile.seats errorMessage=(fieldError "seats")}}
+            {{> Select_Form_Control label="Years Owned" placeholder="3" options=numbers multiple=false value=profile.owned errorMessage=(fieldError "year")}}
             {{> Select_Form_Control label="Number of Accidents" placeholder="0" options=numbers multiple=false value=profile.accidents errorMessage=(fieldError "accidents")}}
           </div>
         </div>
@@ -54,12 +57,12 @@
 
         {{#if riderButtonClicked}}
         <div id="rider_field">
-          <div class="fields">
-            {{> Text_Form_Control label="Woo Hoo" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
-            {{> Select_Form_Control label="Years Owned" placeholder="3" value=profile.year errorMessage=(fieldError "year")}}
+          <div class="field">
+            {{> Text_Form_Control label="Car Model Preference" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
           </div>
           <div class="fields">
-            {{> Select_Form_Control label="" placeholder="5" value=profile.seats errorMessage=(fieldError "seats")}}
+            {{> Select_Form_Control label="Max Car Age" placeholder="5" options=numbers value=profile.year errorMessage=(fieldError "year")}}
+            {{> Select_Form_Control label="Max Accidents" placeholder="2" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
           </div>
         </div>
         {{/if}}

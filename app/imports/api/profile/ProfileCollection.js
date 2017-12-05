@@ -1,9 +1,9 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
-// import { Interests } from '/imports/api/interest/InterestCollection';
+import { Interests } from '/imports/api/interest/InterestCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
-// import { _ } from 'meteor/underscore';
+import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
 
 /** @module Profile */
@@ -23,13 +23,20 @@ class ProfileCollection extends BaseCollection {
       // Remainder are optional
       firstName: { type: String, optional: true },
       lastName: { type: String, optional: true },
-      bio: { type: String, optional: true },
-      driver: { type: Boolean, optional: false },
-      seats: { type: Number, optional: false },
-      zipcode: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
+      phone: { type: String, optional: true },
+      zipcode: { type: String, optional: true },
       facebook: { type: SimpleSchema.RegEx.Url, optional: true },
       instagram: { type: SimpleSchema.RegEx.Url, optional: true },
+      snapchat: { type: String, optional: true },
+      interests: { type: Array, optional: true },
+      'interests.$': { type: String },
+      bio: { type: String, optional: true },
+      driver: { type: Boolean, optional: false },
+      car: { type: String, optional: true },
+      seats: { type: Number, optional: false },
+      owned: { type: Number, optional: false },
+      accidents: { type: Number, optional: false },
     }, { tracker: Tracker }));
   }
 
@@ -62,13 +69,13 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
     }
 
-    // // Throw an error if any of the passed Interest names are not defined.
-    // Interests.assertNames(interests);
-    //
-    // // Throw an error if there are duplicates in the passed interest names.
-    // if (interests.length !== _.uniq(interests).length) {
-    //   throw new Meteor.Error(`${interests} contains duplicates`);
-    // }
+    // Throw an error if any of the passed Interest names are not defined.
+    Interests.assertNames(interests);
+
+    // Throw an error if there are duplicates in the passed interest names.
+    if (interests.length !== _.uniq(interests).length) {
+      throw new Meteor.Error(`${interests} contains duplicates`);
+    }
 
     return this._collection.insert({ firstName, lastName, username, bio, driver, seats, zipcode, picture,
       facebook, instagram });
