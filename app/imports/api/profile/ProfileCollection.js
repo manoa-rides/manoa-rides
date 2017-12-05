@@ -32,7 +32,7 @@ class ProfileCollection extends BaseCollection {
       interests: { type: Array, optional: true },
       'interests.$': { type: String },
       bio: { type: String, optional: true },
-      driver: { type: Boolean, optional: false },
+      driver: { type: Boolean, optional: true },
       car: { type: String, optional: true },
       seats: { type: Number, optional: true },
       owned: { type: Number, optional: true },
