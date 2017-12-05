@@ -34,9 +34,9 @@ class ProfileCollection extends BaseCollection {
       bio: { type: String, optional: true },
       driver: { type: Boolean, optional: false },
       car: { type: String, optional: true },
-      seats: { type: Number, optional: false },
-      owned: { type: Number, optional: false },
-      accidents: { type: Number, optional: false },
+      seats: { type: Number, optional: true },
+      owned: { type: Number, optional: true },
+      accidents: { type: Number, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -60,8 +60,8 @@ class ProfileCollection extends BaseCollection {
    */
   define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '', zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false, car = '', seats = 0, owned = 0, accidents = 0 }) {
     // make sure required fields are OK.
-    const checkPattern = { username: String, firstName: String, lastName: String, phone: String, zipcode: String, driver: Boolean, car: String, seats: Number, };
-    check({ firstName, lastName, username, bio, driver, seats, zipcode, picture }, checkPattern);
+    const checkPattern = { username: String, firstName: String, lastName: String, picture: String, phone: String, zipcode: String, bio: String, driver: Boolean, car: String, seats: Number, };
+    check({ firstName, lastName, picture, phone, zipcode, bio, driver, car, seats, username }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
