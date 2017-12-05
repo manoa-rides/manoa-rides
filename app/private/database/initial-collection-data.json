@@ -2,10 +2,6 @@
   "comment": "Initial contents for the BowFolios database. For development purposes only.",
   "collections": [
     {
-      "name": "NumbercCollection",
-      "contents": [
-
-      ]
       "name": "InterestCollection",
       "contents": [
         {
