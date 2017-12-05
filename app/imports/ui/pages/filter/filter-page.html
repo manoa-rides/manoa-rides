@@ -4,19 +4,19 @@
       <form class="ui equal width form filter-data-form">
         <div style="margin-bottom: 20px" class="ui centered grid">
           <div class="ui large buttons">
-            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="ui button">Driver</button>
+            <button onClick="toggle_div_on('driverRow'); toggle_div_off('riderRow');" class="choose-driver ui button">Driver</button>
             <div class="or"></div>
-            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="ui button">Rider</button>
+            <button onClick="toggle_div_on('riderRow');toggle_div_off('driverRow');" class="choose-rider ui button">Rider</button>
           </div>
         </div>
-        <div style="display: none; margin-bottom: 20px;" id="riderRow" class="ui grid container">
+        <div  id="riderRow" style="display: none; margin-bottom: 20px;" class="ui grid container">
           <div class="row">
             <div style=" border-right: 2px solid lightgray;" id="location" class="eight wide column">
               <label>Location</label>
               <hr>
               {{> Text_Form_Control label="" placeholder="Radius" }}
               <p>From</p>
-              {{> Text_Form_Control label="" placeholder="Zipcode" }}
+              {{> Text_Form_Control name="RiderZipcode" label="" placeholder="Zipcode" }}
             </div>
             <div id="time" class="eight wide column">
               <label>Time</label>
@@ -164,7 +164,7 @@
           </div>
           <div class="row">
             <div class="right aligned sixteen wide column">
-              <button class="ui green button" type="submit">Filter</button>
+              <button class="filter ui green button" type="submit">Filter</button>
             </div>
           </div>
         </div>
@@ -173,9 +173,9 @@
             <div style=" border-right: 2px solid lightgray;" id="location" class="five wide column">
               <label>Location</label>
               <hr>
-              {{> Text_Form_Control label="" placeholder="Radius" }}
+              {{> Text_Form_Control  label="" placeholder="Radius" }}
               <p>From</p>
-              {{> Text_Form_Control label="" placeholder="Zipcode" }}
+              {{> Text_Form_Control name="DriverZipcode" label="" placeholder="Zipcode" }}
             </div>
             <div style=" border-right: 2px solid lightgray;" id="time" class="six wide column">
               <label>Time</label>
@@ -323,18 +323,7 @@
               <label>Car</label>
               <hr>
               <div class="field">
-                <select class="ui fluid search dropdown" name="numberCarsSeats">
-                  <option value="">Car Seats Available</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9+</option>
-                </select>
+                {{> Select_Form_Control name="carSeats" label="Car Seats Available" options=seatOptions multiple=false }}
               </div>
               <div style="padding-top: 20px;"></div>
               {{> Checkbox_Field label="Air Conditioned"}}
@@ -342,7 +331,7 @@
           </div>
           <div class="row">
             <div class="right aligned sixteen wide column">
-              <button class="ui green button" type="submit">Filter</button>
+              <button class="filter ui green button">Filter</button>
             </div>
           </div>
         </div>
@@ -350,6 +339,8 @@
       {{> Filter_Page_Directory profiles=profiles }}
     </div>
   {{/if}}
+
+  <!--Script to switch between Driver and Rider Search Tools-->
   <script type="text/javascript">
     function toggle_div_on(id)
     {
@@ -368,22 +359,3 @@
     }
   </script>
 </template>
-
-
-<!--Old filter page-->
-<!--<template name="Filter_Page">-->
-    <!--{{#if Template.subscriptionsReady}}-->
-<!--<div style="margin-top: 10px" class="ui container">-->
-
-<!--<form class="ui equal width form filter-data-form">-->
-<!--<div class="field">-->
-<!--{{> Select_Form_Control label="Interests" options=interests multiple=true }}-->
-<!--</div>-->
-<!--<button class="ui teal button" type="submit">Filter</button>-->
-<!--</form>-->
-
-<!--{{> Filter_Page_Directory profiles=profiles }}-->
-
-<!--</div>-->
-    <!--{{/if}}-->
-<!--</template>-->
