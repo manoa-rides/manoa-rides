@@ -8,45 +8,56 @@ const selectedDriver = 'seletedDriverOrRider';
 const selectedSeats = 'selectedSeats';
 const selectedDriverZipcode = 'selectedDriverZipcode';
 const selectedRiderZipcode = 'selectedRiderZipcode';
+const selectedDriverGoingtoUHStart = 'driverGoingtoUHStart';
+const selectedDriverGoingtoUHEnd = 'selectedDriverGoingtoUHEnd';
+const selectedDriverReturntoUHStart = 'selectedDriverReturntoUHStart';
+const selectedDriverReturntoUHEnd = 'selectedDriverReturntoUHEnd';
 
 
 Template.Filter_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.messageFlags = new ReactiveDict();
-  this.messageFlags.set(selectedDriver, undefined);
+  this.messageFlags.set(selectedDriver, true);
   this.messageFlags.set(selectedSeats, undefined);
   this.messageFlags.set(selectedDriverZipcode, undefined);
   this.messageFlags.set(selectedRiderZipcode, undefined);
+  this.messageFlags.set(selectedDriverGoingtoUHStart, undefined);
+  this.messageFlags.set(selectedDriverGoingtoUHEnd, undefined);
+  this.messageFlags.set(selectedDriverReturntoUHStart, undefined);
+  this.messageFlags.set(selectedDriverReturntoUHEnd, undefined);
 });
 
 Template.Filter_Page.helpers({
   profiles() {
     const allProfiles = Profiles.findAll();
     let profiles = null;
-    let selectedD = Template.instance().messageFlags.get(selectedDriver);
+    const selectedD = Template.instance().messageFlags.get(selectedDriver);
     let selectedNumSeats = Template.instance().messageFlags.get(selectedSeats);
-    let selectedRiderZip = Template.instance().messageFlags.get(selectedRiderZipcode);
-    let selectedDriverZip = Template.instance().messageFlags.get(selectedDriverZipcode);
+    const selectedRiderZip = Template.instance().messageFlags.get(selectedRiderZipcode);
+    const selectedDriverZip = Template.instance().messageFlags.get(selectedDriverZipcode);
+    const driverGoingtoUHS = Template.instance().messageFlags.get(selectedDriverGoingtoUHStart);
+    const driverGoingtoUHE = Template.instance().messageFlags.get(selectedDriverGoingtoUHEnd);
+    const driverReturntoUHS = Template.instance().messageFlags.get(selectedDriverReturntoUHStart);
+    const driverReturntoUHE = Template.instance().messageFlags.get(selectedDriverReturntoUHEnd);
 
-    if(selectedD === undefined) {
-      selectedD = true;
-    }
     if (selectedD === true) {
       profiles =  _.filter(allProfiles, function (profile) { if (profile.driver === true) { return profile; } });
       if (selectedNumSeats === undefined) {
         selectedNumSeats = 1;
       }
-      console.log("selectedZip " + selectedDriverZip);
       if(selectedDriverZip !== '' && selectedDriverZip !== undefined) {
         const zipProfiles = _.filter(profiles,
             function (profile) { if (profile.zipcode === selectedDriverZip) { return profile; } });
-        console.log(zipProfiles);
         profiles = zipProfiles;
       }
       const seatProfiles = _.filter(profiles,
           function (profile) { if (profile.seats >= selectedNumSeats) { return profile; } });
       profiles = seatProfiles;
+      console.log(driverGoingtoUHS);
+      console.log(driverGoingtoUHE);
+      console.log(driverReturntoUHS);
+      console.log(driverReturntoUHE);
     } else {
       profiles = _.filter(allProfiles, function (profile) { if (profile.driver === false) { return profile; } });
       if(selectedRiderZip !== '' && selectedRiderZip !== undefined) {
@@ -97,6 +108,10 @@ Template.Filter_Page.events({
     instance.messageFlags.set(selectedSeats, event.target.carSeats.value);
     instance.messageFlags.set(selectedDriverZipcode, event.target.DriverZipcode.value);
     instance.messageFlags.set(selectedRiderZipcode, event.target.RiderZipcode.value);
+    instance.messageFlags.set(selectedDriverGoingtoUHStart, event.target.driverGoingtoUHStart.value);
+    instance.messageFlags.set(selectedDriverGoingtoUHEnd, event.target.driverGoingtoUHEnd.value);
+    instance.messageFlags.set(selectedDriverReturntoUHStart, event.target.returntoUHStart.value);
+    instance.messageFlags.set(selectedDriverReturntoUHEnd, event.target.returntoUHEnd.value);
   },
   'click .choose-driver'(event, instance) {
     event.preventDefault();
