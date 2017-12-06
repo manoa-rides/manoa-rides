@@ -35,6 +35,7 @@ class ProfileCollection extends BaseCollection {
       driver: { type: Boolean, optional: true },
       car: { type: String, optional: true },
       seats: { type: Number, optional: true },
+      carPicture: { type: SimpleSchema.RegEx.Url, optional: true },
       owned: { type: Number, optional: true },
       accidents: { type: Number, optional: true },
     }, { tracker: Tracker }));
@@ -58,10 +59,15 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '', zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false, car = '', seats = 0, owned = 0, accidents = 0 }) {
+  define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '',
+           zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false,
+           car = '', seats = 0, carPicture= '', owned = 0, accidents = 0 }) {
     // make sure required fields are OK.
-    const checkPattern = { username: String, firstName: String, lastName: String, picture: String, phone: String, zipcode: String, bio: String, driver: Boolean, car: String, seats: Number, };
-    check({ firstName, lastName, picture, phone, zipcode, bio, driver, car, seats, username }, checkPattern);
+    const checkPattern = { username: String, firstName: String, lastName: String,
+      picture: String, phone: String, zipcode: String, bio: String, driver: Boolean,
+      car: String, seats: Number, carPicture: String };
+    check({ firstName, lastName, picture, phone, zipcode, bio, driver,
+      car, seats, carPicture, username }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -75,7 +81,9 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, seats, owned, accidents, username });
+    return this._collection.insert({ firstName, lastName, picture,
+      phone, zipcode, facebook, instagram, snapchat, interests, bio,
+      driver, car, seats, owned, accidents, carPicture, username });
   }
 
   /**
@@ -97,10 +105,12 @@ class ProfileCollection extends BaseCollection {
     const driver = doc.driver;
     const car = doc.car;
     const seats = doc.seats;
+    const carPicture = doc.carPicture;
     const owned = doc.owned;
     const accidents = doc.accidents;
     const username = doc.username;
-    return { firstName, lastName, picture, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, seats, owned, accidents, username };
+    return { firstName, lastName, picture, zipcode, facebook, instagram, snapchat,
+      interests, bio, driver, car, seats, owned, carPicture, accidents, username };
   }
 }
 

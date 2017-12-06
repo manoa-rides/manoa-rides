@@ -101,7 +101,8 @@
             "Evolutionary Computation"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "picture": "/images/altenberg.jpg",
+          "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg"
         },
         {
           "firstName": "Kyungim",
@@ -115,7 +116,8 @@
             "Computer Vision"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg"
+          "picture": "/images/baek.jpg",
+          "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg"
         },
         {
           "firstName": "Edo",
@@ -130,7 +132,8 @@
             "Sailing"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/biagioni.jpg"
+          "picture": "/images/biagioni.jpg",
+          "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg"
         },
         {
           "firstName": "Kim",
@@ -145,7 +148,8 @@
             "Imu Cooking"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/binsted.jpg"
+          "picture": "/images/binsted.jpg",
+          "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg"
         },
         {
           "firstName": "Henri",
@@ -161,7 +165,8 @@
             "Photography"
           ],
           "title": "Professor, Information and Computer Sciences",
-          "picture": "/images/casanova.jpg"
+          "picture": "/images/casanova.jpg",
+          "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg"
         }
       ]
     }
