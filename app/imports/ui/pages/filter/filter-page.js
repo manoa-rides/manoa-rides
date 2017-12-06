@@ -8,11 +8,11 @@ const selectedDriver = 'seletedDriverOrRider';
 const selectedSeats = 'selectedSeats';
 const selectedDriverZipcode = 'selectedDriverZipcode';
 const selectedRiderZipcode = 'selectedRiderZipcode';
-const selectedDriverGoingtoUHStart = 'driverGoingtoUHStart';
+const selectedDriverGoingtoUHStart = 'selectedDriverGoingtoUHStart';
 const selectedDriverGoingtoUHEnd = 'selectedDriverGoingtoUHEnd';
 const selectedDriverReturntoUHStart = 'selectedDriverReturntoUHStart';
 const selectedDriverReturntoUHEnd = 'selectedDriverReturntoUHEnd';
-const selectedRiderGoingtoUHStart = 'driverGoingtoUHStart';
+const selectedRiderGoingtoUHStart = 'selectedRiderGoingtoUHStart';
 const selectedRiderGoingtoUHEnd = 'selectedRiderGoingtoUHEnd';
 const selectedRiderReturntoUHStart = 'selectedRiderReturntoUHStart';
 const selectedRiderReturntoUHEnd = 'selectedRiderReturntoUHEnd';
@@ -25,14 +25,14 @@ Template.Filter_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedSeats, undefined);
   this.messageFlags.set(selectedDriverZipcode, undefined);
   this.messageFlags.set(selectedRiderZipcode, undefined);
-  this.messageFlags.set(selectedDriverGoingtoUHStart, 0);
-  this.messageFlags.set(selectedDriverGoingtoUHEnd, 23);
-  this.messageFlags.set(selectedDriverReturntoUHStart, 0);
-  this.messageFlags.set(selectedDriverReturntoUHEnd, 23);
-  this.messageFlags.set(selectedRiderGoingtoUHStart, 0);
-  this.messageFlags.set(selectedRiderGoingtoUHEnd, 23);
-  this.messageFlags.set(selectedRiderReturntoUHStart, 0);
-  this.messageFlags.set(selectedRiderReturntoUHEnd, 23);
+  this.messageFlags.set(selectedDriverGoingtoUHStart, -1);
+  this.messageFlags.set(selectedDriverGoingtoUHEnd, 24);
+  this.messageFlags.set(selectedDriverReturntoUHStart, -1);
+  this.messageFlags.set(selectedDriverReturntoUHEnd, 24);
+  this.messageFlags.set(selectedRiderGoingtoUHStart, -1);
+  this.messageFlags.set(selectedRiderGoingtoUHEnd, 24);
+  this.messageFlags.set(selectedRiderReturntoUHStart, -1);
+  this.messageFlags.set(selectedRiderReturntoUHEnd, 24);
 });
 
 Template.Filter_Page.helpers({
@@ -61,6 +61,12 @@ Template.Filter_Page.helpers({
       const seatProfiles = _.filter(profiles,
           function (profile) { if (profile.seats >= selectedNumSeats) { return profile; } });
       profiles = seatProfiles;
+      const startProfiles = _.filter(profiles,
+          function (profile) { if (profile.goingTime <= driverGoingtoUHE && profile.goingTime >= driverGoingtoUHS) { return profile; } });
+      profiles = startProfiles;
+      const endProfiles = _.filter(profiles,
+          function (profile) { if (profile.returnTime <= driverReturntoUHE && profile.returnTime >= driverReturntoUHS) { return profile; } });
+      profiles = endProfiles;
       console.log(driverGoingtoUHS);
       console.log(driverGoingtoUHE);
       console.log(driverReturntoUHS);
@@ -76,7 +82,12 @@ Template.Filter_Page.helpers({
             function (profile) { if (profile.zipcode === selectedRiderZip) { return profile; } });
         profiles = zipProfiles;
       }
-      
+      const startProfiles = _.filter(profiles,
+          function (profile) { if (profile.goingTime <= riderGoingtoUHE && profile.goingTime >= riderGoingtoUHS) { return profile; } });
+      profiles = startProfiles;
+      const endProfiles = _.filter(profiles,
+          function (profile) { if (profile.returnTime <= riderReturntoUHE && profile.returnTime >= riderReturntoUHS) { return profile; } });
+      profiles = endProfiles;
     }
 
     return profiles;
