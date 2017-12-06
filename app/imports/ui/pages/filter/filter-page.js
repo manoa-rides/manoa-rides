@@ -25,14 +25,14 @@ Template.Filter_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedSeats, undefined);
   this.messageFlags.set(selectedDriverZipcode, undefined);
   this.messageFlags.set(selectedRiderZipcode, undefined);
-  this.messageFlags.set(selectedDriverGoingtoUHStart, undefined);
-  this.messageFlags.set(selectedDriverGoingtoUHEnd, undefined);
-  this.messageFlags.set(selectedDriverReturntoUHStart, undefined);
-  this.messageFlags.set(selectedDriverReturntoUHEnd, undefined);
-  this.messageFlags.set(selectedRiderGoingtoUHStart, undefined);
-  this.messageFlags.set(selectedRiderGoingtoUHEnd, undefined);
-  this.messageFlags.set(selectedRiderReturntoUHStart, undefined);
-  this.messageFlags.set(selectedRiderReturntoUHEnd, undefined);
+  this.messageFlags.set(selectedDriverGoingtoUHStart, 0);
+  this.messageFlags.set(selectedDriverGoingtoUHEnd, 23);
+  this.messageFlags.set(selectedDriverReturntoUHStart, 0);
+  this.messageFlags.set(selectedDriverReturntoUHEnd, 23);
+  this.messageFlags.set(selectedRiderGoingtoUHStart, 0);
+  this.messageFlags.set(selectedRiderGoingtoUHEnd, 23);
+  this.messageFlags.set(selectedRiderReturntoUHStart, 0);
+  this.messageFlags.set(selectedRiderReturntoUHEnd, 23);
 });
 
 Template.Filter_Page.helpers({
@@ -76,10 +76,7 @@ Template.Filter_Page.helpers({
             function (profile) { if (profile.zipcode === selectedRiderZip) { return profile; } });
         profiles = zipProfiles;
       }
-      console.log(riderGoingtoUHS);
-      console.log(riderGoingtoUHE);
-      console.log(riderReturntoUHS);
-      console.log(riderReturntoUHE);
+      
     }
 
     return profiles;
