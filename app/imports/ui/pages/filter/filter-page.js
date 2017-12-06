@@ -12,7 +12,10 @@ const selectedDriverGoingtoUHStart = 'driverGoingtoUHStart';
 const selectedDriverGoingtoUHEnd = 'selectedDriverGoingtoUHEnd';
 const selectedDriverReturntoUHStart = 'selectedDriverReturntoUHStart';
 const selectedDriverReturntoUHEnd = 'selectedDriverReturntoUHEnd';
-
+const selectedRiderGoingtoUHStart = 'driverGoingtoUHStart';
+const selectedRiderGoingtoUHEnd = 'selectedRiderGoingtoUHEnd';
+const selectedRiderReturntoUHStart = 'selectedRiderReturntoUHStart';
+const selectedRiderReturntoUHEnd = 'selectedRiderReturntoUHEnd';
 
 Template.Filter_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
@@ -26,6 +29,10 @@ Template.Filter_Page.onCreated(function onCreated() {
   this.messageFlags.set(selectedDriverGoingtoUHEnd, undefined);
   this.messageFlags.set(selectedDriverReturntoUHStart, undefined);
   this.messageFlags.set(selectedDriverReturntoUHEnd, undefined);
+  this.messageFlags.set(selectedRiderGoingtoUHStart, undefined);
+  this.messageFlags.set(selectedRiderGoingtoUHEnd, undefined);
+  this.messageFlags.set(selectedRiderReturntoUHStart, undefined);
+  this.messageFlags.set(selectedRiderReturntoUHEnd, undefined);
 });
 
 Template.Filter_Page.helpers({
@@ -59,12 +66,20 @@ Template.Filter_Page.helpers({
       console.log(driverReturntoUHS);
       console.log(driverReturntoUHE);
     } else {
+      const riderGoingtoUHS = Template.instance().messageFlags.get(selectedRiderGoingtoUHStart);
+      const riderGoingtoUHE = Template.instance().messageFlags.get(selectedRiderGoingtoUHEnd);
+      const riderReturntoUHS = Template.instance().messageFlags.get(selectedRiderReturntoUHStart);
+      const riderReturntoUHE = Template.instance().messageFlags.get(selectedRiderReturntoUHEnd);
       profiles = _.filter(allProfiles, function (profile) { if (profile.driver === false) { return profile; } });
       if(selectedRiderZip !== '' && selectedRiderZip !== undefined) {
         const zipProfiles = _.filter(profiles,
             function (profile) { if (profile.zipcode === selectedRiderZip) { return profile; } });
         profiles = zipProfiles;
       }
+      console.log(riderGoingtoUHS);
+      console.log(riderGoingtoUHE);
+      console.log(riderReturntoUHS);
+      console.log(riderReturntoUHE);
     }
 
     return profiles;
@@ -110,8 +125,12 @@ Template.Filter_Page.events({
     instance.messageFlags.set(selectedRiderZipcode, event.target.RiderZipcode.value);
     instance.messageFlags.set(selectedDriverGoingtoUHStart, event.target.driverGoingtoUHStart.value);
     instance.messageFlags.set(selectedDriverGoingtoUHEnd, event.target.driverGoingtoUHEnd.value);
-    instance.messageFlags.set(selectedDriverReturntoUHStart, event.target.returntoUHStart.value);
-    instance.messageFlags.set(selectedDriverReturntoUHEnd, event.target.returntoUHEnd.value);
+    instance.messageFlags.set(selectedDriverReturntoUHStart, event.target.driverReturntoUHStart.value);
+    instance.messageFlags.set(selectedDriverReturntoUHEnd, event.target.driverReturntoUHEnd.value);
+    instance.messageFlags.set(selectedRiderGoingtoUHStart, event.target.riderGoingtoUHStart.value);
+    instance.messageFlags.set(selectedRiderGoingtoUHEnd, event.target.riderGoingtoUHEnd.value);
+    instance.messageFlags.set(selectedRiderReturntoUHStart, event.target.riderReturntoUHStart.value);
+    instance.messageFlags.set(selectedRiderReturntoUHEnd, event.target.riderReturntoUHEnd.value);
   },
   'click .choose-driver'(event, instance) {
     event.preventDefault();
