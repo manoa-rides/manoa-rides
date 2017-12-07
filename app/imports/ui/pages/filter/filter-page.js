@@ -89,7 +89,6 @@ Template.Filter_Page.helpers({
           function (profile) { if (profile.returnTime <= riderReturntoUHE && profile.returnTime >= riderReturntoUHS) { return profile; } });
       profiles = endProfiles;
     }
-
     return profiles;
   },
   seatOptions() {
