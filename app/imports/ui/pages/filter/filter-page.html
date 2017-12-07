@@ -11,12 +11,12 @@
         </div>
         <div  id="riderRow" style="display: none; margin-bottom: 20px;" class="ui grid container">
           <div class="row">
-            <div style=" border-right: 2px solid lightgray;" id="location" class="eight wide column">
+            <div style=" border-right: 2px solid lightgray;" id="location" class="six wide column">
               <label>Location</label>
               <hr>
               {{> Text_Form_Control name="RiderZipcode" label="" placeholder="Zipcode" }}
             </div>
-            <div id="time" class="eight wide column">
+            <div id="time" class="ten wide column">
               <label>Time</label>
               <hr>
               <div class="ui three column grid">
@@ -26,11 +26,13 @@
                   </div>
                   <div class="column">
                     <div class="field">
-                      {{> Select_Form_Control name="riderGoingtoUHStart" label="goingtoUHStart" options=timeOptions multiple=false }}
+                      {{> Select_Form_Control name="riderGoingtoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                     </div>
                   </div>
                   <div class="column">
-                      {{> Select_Form_Control name="riderGoingtoUHEnd" label="goingtoUHStart" options=timeOptions multiple=false }}
+                    <div class="field">
+                      {{> Select_Form_Control name="riderGoingtoUHEnd" placeholder="Latest" options=timeOptions multiple=false }}
+                    </div>
                   </div>
                 </div>
                 <div class="row">
@@ -38,10 +40,10 @@
                     Leaving UH Between
                   </div>
                   <div class="column">
-                    {{> Select_Form_Control name="riderReturntoUHStart" label="goingtoUHStart" options=timeOptions multiple=false }}
+                    {{> Select_Form_Control name="riderReturntoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
-                    {{> Select_Form_Control name="riderReturntoUHEnd" label="goingtoUHStart" options=timeOptions multiple=false }}
+                    {{> Select_Form_Control name="riderReturntoUHEnd" placeholder="Latest" options=timeOptions multiple=false }}
                   </div>
                 </div>
               </div>
@@ -61,7 +63,7 @@
               <hr>
               {{> Text_Form_Control name="DriverZipcode" label="" placeholder="Zipcode" }}
             </div>
-            <div style=" border-right: 2px solid lightgray;" id="time" class="eight wide column">
+            <div style="border-right: 2px solid lightgray;" id="time" class="nine wide column">
               <label>Time</label>
               <hr>
               <div class="ui three column grid">
@@ -70,13 +72,11 @@
                     Going to UH Between
                   </div>
                   <div class="column">
-                    <!--<div class="field">-->
-                    {{> Select_Form_Control name="driverGoingtoUHStart" options=timeOptions multiple=false }}
-                    <!--</div>-->
+                    {{> Select_Form_Control name="driverGoingtoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
                     <!--<div class="field">-->
-                      {{> Select_Form_Control name="driverGoingtoUHEnd" options=timeOptions multiple=false }}
+                      {{> Select_Form_Control name="driverGoingtoUHEnd" placeholder="Latest"  options=timeOptions multiple=false }}
                     <!--</div>-->
                   </div>
                 </div>
@@ -85,19 +85,19 @@
                     Leaving UH Between
                   </div>
                   <div class="column">
-                    {{> Select_Form_Control name="driverReturntoUHStart" options=timeOptions multiple=false }}
+                    {{> Select_Form_Control name="driverReturntoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
-                    {{> Select_Form_Control name="driverReturntoUHEnd"  options=timeOptions multiple=false }}
+                    {{> Select_Form_Control name="driverReturntoUHEnd" placeholder="Latest"  options=timeOptions multiple=false }}
                   </div>
                 </div>
               </div>
             </div>
-            <div id="car" class="five wide column">
+            <div id="car" class="three wide column">
               <label>Car</label>
               <hr>
               <div class="field">
-                {{> Select_Form_Control name="carSeats" label="Minimum Number of Car Seats Available" options=seatOptions multiple=false }}
+                {{> Select_Form_Control name="carSeats" placeholder="Car Seats Available" options=seatOptions multiple=false }}
               </div>
               <div style="padding-top: 20px;"></div>
               {{> Checkbox_Field label="Air Conditioned"}}
