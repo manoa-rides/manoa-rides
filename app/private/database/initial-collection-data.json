@@ -103,8 +103,8 @@
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/altenberg.jpg",
           "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg",
-          "goingTime" : 0,
-          "returnTime" : 23
+          "goingTime" : 4,
+          "returnTime" : 10
         },
         {
           "firstName": "Kyungim",
@@ -120,8 +120,8 @@
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/baek.jpg",
           "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg",
-          "goingTime" : 0,
-          "returnTime" : 23
+          "goingTime" : 4,
+          "returnTime" : 18
         },
         {
           "firstName": "Edo",
@@ -138,8 +138,8 @@
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/biagioni.jpg",
           "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg",
-          "goingTime" : 0,
-          "returnTime" : 23
+          "goingTime" : 10,
+          "returnTime" : 18
         },
         {
           "firstName": "Kim",
@@ -156,8 +156,8 @@
           "title": "Associate Professor, Information and Computer Sciences",
           "picture": "/images/binsted.jpg",
           "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg",
-          "goingTime" : 0,
-          "returnTime" : 23
+          "goingTime" : 3,
+          "returnTime" : 9
         },
         {
           "firstName": "Henri",
@@ -175,8 +175,8 @@
           "title": "Professor, Information and Computer Sciences",
           "picture": "/images/casanova.jpg",
           "carPicture": "https://i.ytimg.com/vi/7vG6TfSGfII/hqdefault.jpg",
-          "goingTime" : 0,
-          "returnTime" : 23
+          "goingTime" : 3,
+          "returnTime" : 10
         }
       ]
     }

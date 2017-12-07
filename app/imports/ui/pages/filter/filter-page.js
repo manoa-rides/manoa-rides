@@ -43,10 +43,22 @@ Template.Filter_Page.helpers({
     let selectedNumSeats = Template.instance().messageFlags.get(selectedSeats);
     const selectedRiderZip = Template.instance().messageFlags.get(selectedRiderZipcode);
     const selectedDriverZip = Template.instance().messageFlags.get(selectedDriverZipcode);
-    const driverGoingtoUHS = Template.instance().messageFlags.get(selectedDriverGoingtoUHStart);
-    const driverGoingtoUHE = Template.instance().messageFlags.get(selectedDriverGoingtoUHEnd);
-    const driverReturntoUHS = Template.instance().messageFlags.get(selectedDriverReturntoUHStart);
-    const driverReturntoUHE = Template.instance().messageFlags.get(selectedDriverReturntoUHEnd);
+    let driverGoingtoUHS = Template.instance().messageFlags.get(selectedDriverGoingtoUHStart);
+    let driverGoingtoUHE = Template.instance().messageFlags.get(selectedDriverGoingtoUHEnd);
+    let driverReturntoUHS = Template.instance().messageFlags.get(selectedDriverReturntoUHStart);
+    let driverReturntoUHE = Template.instance().messageFlags.get(selectedDriverReturntoUHEnd);
+    if (driverGoingtoUHS === '') {
+      driverGoingtoUHS = -1;
+    }
+    if (driverGoingtoUHE === '') {
+      driverGoingtoUHE = 24;
+    }
+    if (driverReturntoUHS === '') {
+      driverReturntoUHS = -1;
+    }
+    if (driverReturntoUHE === '') {
+      driverReturntoUHE = 24;
+    }
 
     if (selectedD === true) {
       profiles =  _.filter(allProfiles, function (profile) { if (profile.driver === true) { return profile; } });
@@ -67,15 +79,27 @@ Template.Filter_Page.helpers({
       const endProfiles = _.filter(profiles,
           function (profile) { if (profile.returnTime <= driverReturntoUHE && profile.returnTime >= driverReturntoUHS) { return profile; } });
       profiles = endProfiles;
-      console.log(driverGoingtoUHS);
-      console.log(driverGoingtoUHE);
-      console.log(driverReturntoUHS);
-      console.log(driverReturntoUHE);
+      // console.log(driverGoingtoUHS);
+      // console.log(driverGoingtoUHE);
+      // console.log(driverReturntoUHS);
+      // console.log(driverReturntoUHE);
     } else {
-      const riderGoingtoUHS = Template.instance().messageFlags.get(selectedRiderGoingtoUHStart);
-      const riderGoingtoUHE = Template.instance().messageFlags.get(selectedRiderGoingtoUHEnd);
-      const riderReturntoUHS = Template.instance().messageFlags.get(selectedRiderReturntoUHStart);
-      const riderReturntoUHE = Template.instance().messageFlags.get(selectedRiderReturntoUHEnd);
+      let riderGoingtoUHS = Template.instance().messageFlags.get(selectedRiderGoingtoUHStart);
+      let riderGoingtoUHE = Template.instance().messageFlags.get(selectedRiderGoingtoUHEnd);
+      let riderReturntoUHS = Template.instance().messageFlags.get(selectedRiderReturntoUHStart);
+      let riderReturntoUHE = Template.instance().messageFlags.get(selectedRiderReturntoUHEnd);
+      if (riderGoingtoUHS === '') {
+        riderGoingtoUHS = -1;
+      }
+      if (riderGoingtoUHE === '') {
+        riderGoingtoUHE = 24;
+      }
+      if (riderReturntoUHS === '') {
+        riderReturntoUHS = -1;
+      }
+      if (riderReturntoUHE === '') {
+        riderReturntoUHE = 24;
+      }
       profiles = _.filter(allProfiles, function (profile) { if (profile.driver === false) { return profile; } });
       if(selectedRiderZip !== '' && selectedRiderZip !== undefined) {
         const zipProfiles = _.filter(profiles,
