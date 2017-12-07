@@ -1,5 +1,4 @@
 <template name="Directory_Profile">
-
   {{# if profile.driver}}
     <div class="item">
       <a class="ui small circular image">
@@ -21,10 +20,10 @@
                 Zipcode {{profile.zipcode}}
               </div>
               <div class="row">
-                Departing to UH at 9:00 AM
+                Departing to UH at {{ formatTime profile "going"}}
               </div>
               <div class="row">
-                Returning from UH at 3:00 PM
+                Returning from UH at {{ formatTime profile "returning" }}
               </div>
             </div>
             <div class = "six wide column">
@@ -72,10 +71,10 @@
                 Zipcode {{profile.zipcode}}
               </div>
               <div class="row">
-                Departing to UH at 9:00 AM
+                Departing to UH at {{ formatTime profile "going"}}
               </div>
               <div class="row">
-                Returning from UH at 3:00 PM
+                Returning from UH at {{ formatTime profile "returning" }}
               </div>
             </div>
           </div>
