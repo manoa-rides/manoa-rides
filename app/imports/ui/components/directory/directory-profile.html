@@ -15,7 +15,7 @@
         <div class="description">
           <!--{{ profile.bio }}-->
           <div class="ui grid ">
-            <div style="border-right: 2px solid lightgray;" class="six wide column">
+            <div style="border-right: 2px solid lightgray;" class="four wide column">
               <div class="row">
                 Zipcode {{profile.zipcode}}
               </div>
@@ -26,19 +26,30 @@
                 Returning from UH at {{ formatTime profile "returning" }}
               </div>
             </div>
-            <div class = "six wide column">
+            <div class = "five wide column">
               <a class="ui top aligned medium rounded image">
                 <img src="{{ profile.carPicture }}">
               </a>
             </div>
             <div class="ui three wide column">
               <div class = "column">
-                <div class="center aligned row">
-                  Seats Available: {{profile.seats}}
+                <div class="right aligned row">
+                  Seats Available : {{profile.seats}}
                 </div>
-                <div class="center aligned row">
-                  Air Conditioning: Yes
-                </div>
+              </div>
+            </div>
+            <div class="ui three wide right aligned column">
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://instagram.com/{{ profile.instagram}}"><i class="big instagram icon"></i></a>
               </div>
             </div>
           </div>
@@ -75,6 +86,20 @@
               </div>
               <div class="row">
                 Returning from UH at {{ formatTime profile "returning" }}
+              </div>
+            </div>
+            <div class="ui eight wide column">
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://instagram.com/{{ profile.instagram}}"><i class="big instagram icon"></i></a>
               </div>
             </div>
           </div>
