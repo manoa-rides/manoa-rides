@@ -61,23 +61,64 @@ Template.Filter_Page.helpers({
     }
 
     if (selectedD === true) {
-      profiles =  _.filter(allProfiles, function (profile) { if (profile.driver === true) { return profile; } });
+      profiles = _.filter(allProfiles,
+          function (profile) {
+            let retProfile;
+            if (profile.driver === true) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       if (selectedNumSeats === undefined) {
         selectedNumSeats = 1;
       }
-      if(selectedDriverZip !== '' && selectedDriverZip !== undefined) {
+      if (selectedDriverZip !== '' && selectedDriverZip !== undefined) {
         const zipProfiles = _.filter(profiles,
-            function (profile) { if (profile.zipcode === selectedDriverZip) { return profile; } });
+            function (profile) {
+              let retProfile;
+              if (profile.zipcode === selectedDriverZip) {
+                retProfile = profile;
+              } else {
+                retProfile = undefined;
+              }
+              return retProfile;
+            });
         profiles = zipProfiles;
       }
       const seatProfiles = _.filter(profiles,
-          function (profile) { if (profile.seats >= selectedNumSeats) { return profile; } });
+          function (profile) {
+            let retProfile;
+            if (profile.seats >= selectedNumSeats) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       profiles = seatProfiles;
       const startProfiles = _.filter(profiles,
-          function (profile) { if (profile.goingTime <= driverGoingtoUHE && profile.goingTime >= driverGoingtoUHS) { return profile; } });
+          function (profile) {
+            let retProfile;
+            if (profile.goingTime <= driverGoingtoUHE && profile.goingTime >= driverGoingtoUHS) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       profiles = startProfiles;
       const endProfiles = _.filter(profiles,
-          function (profile) { if (profile.returnTime <= driverReturntoUHE && profile.returnTime >= driverReturntoUHS) { return profile; } });
+          function (profile) {
+            let retProfile;
+            if (profile.returnTime <= driverReturntoUHE && profile.returnTime >= driverReturntoUHS) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       profiles = endProfiles;
       // console.log(driverGoingtoUHS);
       // console.log(driverGoingtoUHE);
@@ -100,17 +141,50 @@ Template.Filter_Page.helpers({
       if (riderReturntoUHE === '') {
         riderReturntoUHE = 24;
       }
-      profiles = _.filter(allProfiles, function (profile) { if (profile.driver === false) { return profile; } });
-      if(selectedRiderZip !== '' && selectedRiderZip !== undefined) {
+      profiles = _.filter(allProfiles,
+          function (profile) {
+            let retProfile;
+            if (profile.driver === false) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
+      if (selectedRiderZip !== '' && selectedRiderZip !== undefined) {
         const zipProfiles = _.filter(profiles,
-            function (profile) { if (profile.zipcode === selectedRiderZip) { return profile; } });
+            function (profile) {
+              let retProfile;
+              if (profile.zipcode === selectedRiderZip) {
+                retProfile = profile;
+              } else {
+                retProfile = undefined;
+              }
+              return retProfile;
+            });
         profiles = zipProfiles;
       }
       const startProfiles = _.filter(profiles,
-          function (profile) { if (profile.goingTime <= riderGoingtoUHE && profile.goingTime >= riderGoingtoUHS) { return profile; } });
+          function (profile) {
+            let retProfile;
+            if (profile.goingTime <= riderGoingtoUHE && profile.goingTime >= riderGoingtoUHS) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       profiles = startProfiles;
       const endProfiles = _.filter(profiles,
-          function (profile) { if (profile.returnTime <= riderReturntoUHE && profile.returnTime >= riderReturntoUHS) { return profile; } });
+          function (profile) {
+            let retProfile;
+            if (profile.returnTime <= riderReturntoUHE && profile.returnTime >= riderReturntoUHS) {
+              retProfile = profile;
+            } else {
+              retProfile = undefined;
+            }
+            return retProfile;
+          });
       profiles = endProfiles;
     }
     return profiles;
@@ -165,12 +239,10 @@ Template.Filter_Page.events({
   },
   'click .choose-driver'(event, instance) {
     event.preventDefault();
-    console.log('Set to true');
     instance.messageFlags.set(selectedDriver, true);
   },
   'click .choose-rider'(event, instance) {
     event.preventDefault();
-    console.log('Set to false');
     instance.messageFlags.set(selectedDriver, false);
   },
 });
