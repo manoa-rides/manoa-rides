@@ -7,31 +7,31 @@
       <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
         <div class="fields">
-          {{> Text_Form_Control label="First" placeholder="John" value=profile.firstName errorMessage=(fieldError "firstName")}}
-          {{> Text_Form_Control label="Last" placeholder="Smith" value=profile.lastName errorMessage=(fieldError "lastName")}}
+          {{> Text_Form_Control name="First" label="First" placeholder="John" value=profile.firstName errorMessage=(fieldError "firstName")}}
+          {{> Text_Form_Control name="Last" label="Last" placeholder="Smith" value=profile.lastName errorMessage=(fieldError "lastName")}}
         </div>
 
         <div class="field">
-          {{> Text_Form_Control label="Picture" placeholder="http://facebook/profile_picture.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+          {{> Text_Form_Control name="Picture" label="Picture" placeholder="http://facebook/profile_picture.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
         </div>
 
         <div class="fields">
-          {{> Text_Form_Control label="Phone" placeholder="808-123-4567" value=profile.phone errorMessage=(fieldError "phone")}}
-          {{> Text_Form_Control label="ZipCode" placeholder="96821" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
+          {{> Text_Form_Control name="Phone" label="Phone" placeholder="808-123-4567" value=profile.phone errorMessage=(fieldError "phone")}}
+          {{> Text_Form_Control name="ZipCode" label="ZipCode" placeholder="96821" value=profile.zipcode errorMessage=(fieldError "zipcode")}}
         </div>
 
         <div class="fields">
-          {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
-          {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="johnsmith" value=profile.instagram errorMessage=(fieldError "instagram")}}
-          {{> Social_Network_Form_Control label="Snapchat" icon="snapchat" placeholder="johnsmith" value=profile.snapchat errorMessage=(fieldError "snapchat")}}
+          {{> Social_Network_Form_Control name="Facebook" label="Facebook" icon="facebook" placeholder="johnsmith" value=profile.facebook errorMessage=(fieldError "facebook")}}
+          {{> Social_Network_Form_Control name="Instagram" label="Instagram" icon="instagram" placeholder="johnsmith" value=profile.instagram errorMessage=(fieldError "instagram")}}
+          {{> Social_Network_Form_Control name="Snapchat" label="Snapchat" icon="snapchat" placeholder="johnsmith" value=profile.snapchat errorMessage=(fieldError "snapchat")}}
         </div>
 
         <div class="field">
-          {{> Select_Form_Control label="Interests" options=interests multiple=true value=profile.interests errorMessage=(fieldError "interests")}}
+          {{> Select_Form_Control name="Interests" label="Interests" options=interests multiple=true value=profile.interests errorMessage=(fieldError "interests")}}
         </div>
 
         <div class="field">
-          {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
+          {{> TextArea_Form_Control name="Bio" label="Bio" value=profile.bio placeholder="Tell everyone a little about yourself" errorMessage=(fieldError "bio")}}
         </div>
 
         <div class="field">
@@ -45,24 +45,20 @@
         {{#if driverButtonClicked}}
         <div id="driver_field">
           <div class="fields">
-            {{> Text_Form_Control label="Car" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
-            {{> Select_Form_Control label="Seats" placeholder="5" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
+            {{> Text_Form_Control name="Car" label="Car Model" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+            {{> Select_Form_Control name="Seats" label="Seats" placeholder="5" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
           </div>
           <div class="fields">
-            {{> Select_Form_Control label="Owned" placeholder="3" options=numbers value=profile.owned errorMessage=(fieldError "year")}}
-            {{> Select_Form_Control label="Accidents" placeholder="0" options=numbers value=profile.accidents errorMessage=(fieldError "accidents")}}
+            {{> Select_Form_Control name="Owned" label="How many years have you owned your car?" placeholder="3" options=numbers value=profile.owned errorMessage=(fieldError "owned")}}
           </div>
         </div>
         {{/if}}
 
         {{#if riderButtonClicked}}
           <div id="rider_field">
-            <div class="field">
-              {{> Text_Form_Control label="Car" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
-            </div>
             <div class="fields">
-              {{> Select_Form_Control label="Owned" placeholder="5" options=numbers value=profile.owned errorMessage=(fieldError "year")}}
-              {{> Select_Form_Control label="Accidents" placeholder="2" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
+              {{> Text_Form_Control name="Car" label="Car Preferred" placeholder="Toyota Tacoma 2016" value=profile.car errorMessage=(fieldError "car")}}
+              {{> Select_Form_Control name="Seats" label="Seats Needed" placeholder="1" options=numbers value=profile.seats errorMessage=(fieldError "seats")}}
             </div>
           </div>
         {{/if}}

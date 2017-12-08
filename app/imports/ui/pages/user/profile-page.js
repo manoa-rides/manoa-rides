@@ -74,11 +74,10 @@ Template.Profile_Page.events({
     const driver = instance.messageFlags.get(driverButtonClicked);
     const car = event.target.Car.value;
     const seats = event.target.Seats.value;
-    const owned = event.target.Owned.value;
-    const accidents = event.target.Accidents.value;
+    const owned = driver ? event.target.Owned.value : 0;
     const username = FlowRouter.getParam('username'); // schema requires username.
 
-    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, accidents, username };
+    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username };
 
     // Clear out any old validation errors.
     instance.context.reset();
