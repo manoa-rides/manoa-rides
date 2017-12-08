@@ -5,6 +5,42 @@
       "name": "InterestCollection",
       "contents": [
         {
+          "name": "Basketball",
+          "description": ""
+        },
+        {
+          "name": "Baseball",
+          "description": ""
+        },
+        {
+          "name": "Bowling",
+          "description": ""
+        },
+        {
+          "name": "Tennis",
+          "description": ""
+        },
+        {
+          "name": "Swimming",
+          "description": ""
+        },
+        {
+          "name": "Guitar Playing",
+          "description": ""
+        },
+        {
+          "name": "Dancing",
+          "description": ""
+        },
+        {
+          "name": "Hula",
+          "description": ""
+        },
+        {
+          "name": "Football",
+          "description": ""
+        },
+        {
           "name": "Software Engineering",
           "description": "Techniques for development of high quality systems"
         },
