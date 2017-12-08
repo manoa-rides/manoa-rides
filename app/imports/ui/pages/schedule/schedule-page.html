@@ -1,80 +1,67 @@
 <template name="Schedule_Page">
   {{#if Template.subscriptionsReady}}
-    <div class="ui centered grid container">
-      <div class="two wide column">
-        <div class="row" style="padding: 2em 0em 2em 0em">
-          <div class="field">
-            <select class="ui fluid search dropdown" name="card[expire-month]">
-              <option value="">Time</option>
-              <option value="1">12:00 AM</option>
-              <option value="2">1:00 AM</option>
-              <option value="3">2:00 AM</option>
-              <option value="4">3:00 AM</option>
-              <option value="5">4:00 AM</option>
-              <option value="6">5:00 AM</option>
-              <option value="7">6:00 AM</option>
-              <option value="8">7:00 AM</option>
-              <option value="8">8:00 AM</option>
-              <option value="8">9:00 AM</option>
-              <option value="8">10:00 AM</option>
-              <option value="8">10:00 AM</option>
-              <option value="1">11:00 AM</option>
-              <option value="1">12:00 PM</option>
-              <option value="2">1:00 PM</option>
-              <option value="3">2:00 PM</option>
-              <option value="4">3:00 PM</option>
-              <option value="5">4:00 PM</option>
-              <option value="6">5:00 PM</option>
-              <option value="7">6:00 PM</option>
-              <option value="8">7:00 PM</option>
-              <option value="8">8:00 PM</option>
-              <option value="8">9:00 PM</option>
-              <option value="8">10:00 PM</option>
-              <option value="8">10:00 PM</option>
-              <option value="1">11:00 PM</option>
-            </select>
+    <div class="ui center aligned container">
+      <form class="ui equal width form schedule-data-form {{ successClass}} {{ errorClass }}">
+        <div class="ui centered three cards">
+          <div id="monday-card" class="ui card">
+            <div class="content">
+              <div class="header">Monday</div>
+              <div class="field">
+                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+              </div>
+              <div class="field">
+                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              </div>
+            </div>
+          </div>
+          <div id="tuesday-card" class="ui card">
+            <div class="content">
+              <div class="header">Tuesday</div>
+              <div class="field">
+                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+              </div>
+              <div class="field">
+                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              </div>
+            </div>
+          </div>
+          <div id="wednesday-card" class="ui card">
+            <div class="content">
+              <div class="header">Wednesday</div>
+              <div class="field">
+                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+              </div>
+              <div class="field">
+                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row" style="padding: 2em 0em 2em 0em">
-          <div class="field">
-            <select class="ui fluid search dropdown" name="card[expire-month]">
-              <option value="">Date</option>
-              <option value="1">11/22</option>
-              <option value="1">11/23</option>
-              <option value="1">11/24</option>
-              <option value="1">11/25</option>
-              <option value="1">11/26</option>
-              <option value="1">11/27</option>
-              <option value="1">11/28</option>
-              <option value="1">11/29</option>
-              <option value="1">11/30</option>
-              <option value="1">12/01</option>
-              <option value="1">12/02</option>
-              <option value="1">12/03</option>
-              <option value="1">12/04</option>
-              <option value="1">12/05</option>
-              <option value="1">12/06</option>
-              <option value="1">12/07</option>
-              <option value="1">12/08</option>
-              <option value="1">12/09</option>
-              <option value="1">12/10</option>
-              <option value="1">12/11</option>
-              <option value="1">12/12</option>
-            </select>
+        <div class="ui centered three cards">
+          <div id="thursday-card" class="ui card">
+            <div class="content">
+              <div class="header">Thursday</div>
+              <div class="field">
+                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+              </div>
+              <div class="field">
+                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              </div>
+            </div>
+          </div>
+          <div id="friday-card" class="ui card">
+            <div class="content">
+              <div class="header">Friday</div>
+              <div class="field">
+                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+              </div>
+              <div class="field">
+                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ten wide column">
-        <img class="ui fluid image" src="/images/calendar.png">
-      </div>
-      <div class="two wide column">
-        <div class="row" style="padding: 2em 0em 2em 0em">
-          <button class="ui green button">Add Activity</button>
-        </div>
-        <div class="row" style="padding: 2em 0em 2em 0em">
-          <button class="ui red button">Delete Activity</button>
-        </div>
-      </div>
+      </form>
     </div>
   {{/if}}
 </template>

@@ -60,6 +60,14 @@ userRoutes.route('/profile', {
   },
 });
 
+export const calendarPageRouteName = 'Calendar_Page';
+userRoutes.route('/calendar', {
+  name: calendarPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: calendarPageRouteName });
+  },
+});
+
 export const schedulePageRouteName = 'Schedule_Page';
 userRoutes.route('/schedule', {
   name: schedulePageRouteName,
