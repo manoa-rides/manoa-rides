@@ -1,5 +1,4 @@
 <template name="Directory_Profile">
-
   {{# if profile.driver}}
     <div class="item">
       <a class="ui small circular image">
@@ -16,31 +15,41 @@
         <div class="description">
           <!--{{ profile.bio }}-->
           <div class="ui grid ">
-            <div style="border-right: 2px solid lightgray;" class="six wide column">
+            <div style="border-right: 2px solid lightgray;" class="four wide column">
               <div class="row">
                 Zipcode {{profile.zipcode}}
               </div>
               <div class="row">
-                Departing to UH at 9:00 AM
+                Departing to UH at {{ formatTime profile "going"}}
               </div>
               <div class="row">
-                Returning from UH at 3:00 PM
+                Returning from UH at {{ formatTime profile "returning" }}
               </div>
             </div>
-            <div class = "six wide column">
+            <div class = "five wide column">
               <a class="ui top aligned medium rounded image">
-                <img src="https://s.aolcdn.com/dims-global/dims3/GLOB/legacy_thumbnail/788x525/quality/85/https://s.aolcdn.com/commerce/autodata/images/USC50TOC201C021001.jpg">
-                <!--<img src="{{ profile.carPicture }}">-->
+                <img src="{{ profile.carPicture }}">
               </a>
             </div>
             <div class="ui three wide column">
               <div class = "column">
-                <div class="center aligned row">
-                  Seats Available: {{profile.seats}}
+                <div class="right aligned row">
+                  Seats Available : {{profile.seats}}
                 </div>
-                <div class="center aligned row">
-                  Air Conditioning: Yes
-                </div>
+              </div>
+            </div>
+            <div class="ui three wide right aligned column">
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://instagram.com/{{ profile.instagram}}"><i class="big instagram icon"></i></a>
               </div>
             </div>
           </div>
@@ -73,10 +82,24 @@
                 Zipcode {{profile.zipcode}}
               </div>
               <div class="row">
-                Departing to UH at 9:00 AM
+                Departing to UH at {{ formatTime profile "going"}}
               </div>
               <div class="row">
-                Returning from UH at 3:00 PM
+                Returning from UH at {{ formatTime profile "returning" }}
+              </div>
+            </div>
+            <div class="ui eight wide column">
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a>
+              </div>
+              <div style="padding-bottom: 10px" class="right aligned row">
+                <a href="https://instagram.com/{{ profile.instagram}}"><i class="big instagram icon"></i></a>
               </div>
             </div>
           </div>

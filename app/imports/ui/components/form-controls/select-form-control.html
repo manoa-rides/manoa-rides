@@ -25,8 +25,12 @@
   <div class="{{#if required}}required{{/if}} field">
     <label>{{label}}</label>
     <select multiple="{{multiple}}" class="ui dropdown" name="{{#if name}}{{name}}{{else}}{{label}}{{/if}}">
-      <option value="">(Select {{#if multiple}}One or More{{else}}One{{/if}})</option>
-      {{#each option in options}}
+      {{#if placeholder}}
+        <option value="">{{placeholder}}</option>
+      {{else}}
+        <option value="">(Select {{#if multiple}}One or More{{else}}One{{/if}})</option>
+      {{/if}}
+        {{#each option in options}}
         <option value="{{#if option.value}}{{option.value}}{{else}}{{option.label}}{{/if}}"
                 selected="{{option.selected}}">{{option.label}}</option>
       {{/each}}

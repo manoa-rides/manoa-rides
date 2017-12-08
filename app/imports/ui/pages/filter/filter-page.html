@@ -11,14 +11,12 @@
         </div>
         <div  id="riderRow" style="display: none; margin-bottom: 20px;" class="ui grid container">
           <div class="row">
-            <div style=" border-right: 2px solid lightgray;" id="location" class="eight wide column">
+            <div style=" border-right: 2px solid lightgray;" id="location" class="six wide column">
               <label>Location</label>
               <hr>
-              {{> Text_Form_Control label="" placeholder="Radius" }}
-              <p>From</p>
               {{> Text_Form_Control name="RiderZipcode" label="" placeholder="Zipcode" }}
             </div>
-            <div id="time" class="eight wide column">
+            <div id="time" class="ten wide column">
               <label>Time</label>
               <hr>
               <div class="ui three column grid">
@@ -28,67 +26,13 @@
                   </div>
                   <div class="column">
                     <div class="field">
-                      <select class="ui fluid search dropdown" name="card[expire-month]">
-                        <option value="">Start</option>
-                        <option value="1">12:00 AM</option>
-                        <option value="2">1:00 AM</option>
-                        <option value="3">2:00 AM</option>
-                        <option value="4">3:00 AM</option>
-                        <option value="5">4:00 AM</option>
-                        <option value="6">5:00 AM</option>
-                        <option value="7">6:00 AM</option>
-                        <option value="8">7:00 AM</option>
-                        <option value="8">8:00 AM</option>
-                        <option value="8">9:00 AM</option>
-                        <option value="8">10:00 AM</option>
-                        <option value="8">10:00 AM</option>
-                        <option value="1">11:00 AM</option>
-                        <option value="1">12:00 PM</option>
-                        <option value="2">1:00 PM</option>
-                        <option value="3">2:00 PM</option>
-                        <option value="4">3:00 PM</option>
-                        <option value="5">4:00 PM</option>
-                        <option value="6">5:00 PM</option>
-                        <option value="7">6:00 PM</option>
-                        <option value="8">7:00 PM</option>
-                        <option value="8">8:00 PM</option>
-                        <option value="8">9:00 PM</option>
-                        <option value="8">10:00 PM</option>
-                        <option value="8">10:00 PM</option>
-                        <option value="1">11:00 PM</option>
-                      </select>
+                      {{> Select_Form_Control name="riderGoingtoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                     </div>
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="card[expire-month]">
-                      <option value="">End</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    <div class="field">
+                      {{> Select_Form_Control name="riderGoingtoUHEnd" placeholder="Latest" options=timeOptions multiple=false }}
+                    </div>
                   </div>
                 </div>
                 <div class="row">
@@ -96,66 +40,10 @@
                     Leaving UH Between
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="card[expire-month]">
-                      <option value="">Start</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    {{> Select_Form_Control name="riderReturntoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="endTime">
-                      <option value="">End</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    {{> Select_Form_Control name="riderReturntoUHEnd" placeholder="Latest" options=timeOptions multiple=false }}
                   </div>
                 </div>
               </div>
@@ -170,14 +58,12 @@
         </div>
         <div id="driverRow" style="margin-bottom: 20px;" class="ui grid container">
           <div class="row">
-            <div style=" border-right: 2px solid lightgray;" id="location" class="five wide column">
+            <div style=" border-right: 2px solid lightgray;" id="location" class="three wide column">
               <label>Location</label>
               <hr>
-              {{> Text_Form_Control  label="" placeholder="Radius" }}
-              <p>From</p>
               {{> Text_Form_Control name="DriverZipcode" label="" placeholder="Zipcode" }}
             </div>
-            <div style=" border-right: 2px solid lightgray;" id="time" class="six wide column">
+            <div style="border-right: 2px solid lightgray;" id="time" class="nine wide column">
               <label>Time</label>
               <hr>
               <div class="ui three column grid">
@@ -186,68 +72,12 @@
                     Going to UH Between
                   </div>
                   <div class="column">
-                    <div class="field">
-                      <select class="ui fluid search dropdown" name="card[expire-month]">
-                        <option value="">Start</option>
-                        <option value="1">12:00 AM</option>
-                        <option value="2">1:00 AM</option>
-                        <option value="3">2:00 AM</option>
-                        <option value="4">3:00 AM</option>
-                        <option value="5">4:00 AM</option>
-                        <option value="6">5:00 AM</option>
-                        <option value="7">6:00 AM</option>
-                        <option value="8">7:00 AM</option>
-                        <option value="8">8:00 AM</option>
-                        <option value="8">9:00 AM</option>
-                        <option value="8">10:00 AM</option>
-                        <option value="8">10:00 AM</option>
-                        <option value="1">11:00 AM</option>
-                        <option value="1">12:00 PM</option>
-                        <option value="2">1:00 PM</option>
-                        <option value="3">2:00 PM</option>
-                        <option value="4">3:00 PM</option>
-                        <option value="5">4:00 PM</option>
-                        <option value="6">5:00 PM</option>
-                        <option value="7">6:00 PM</option>
-                        <option value="8">7:00 PM</option>
-                        <option value="8">8:00 PM</option>
-                        <option value="8">9:00 PM</option>
-                        <option value="8">10:00 PM</option>
-                        <option value="8">10:00 PM</option>
-                        <option value="1">11:00 PM</option>
-                      </select>
-                    </div>
+                    {{> Select_Form_Control name="driverGoingtoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="card[expire-month]">
-                      <option value="">End</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    <!--<div class="field">-->
+                      {{> Select_Form_Control name="driverGoingtoUHEnd" placeholder="Latest"  options=timeOptions multiple=false }}
+                    <!--</div>-->
                   </div>
                 </div>
                 <div class="row">
@@ -255,78 +85,20 @@
                     Leaving UH Between
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="card[expire-month]">
-                      <option value="">Start</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    {{> Select_Form_Control name="driverReturntoUHStart" placeholder="Earliest" options=timeOptions multiple=false }}
                   </div>
                   <div class="column">
-                    <select class="ui fluid search dropdown" name="endTime">
-                      <option value="">End</option>
-                      <option value="1">12:00 AM</option>
-                      <option value="2">1:00 AM</option>
-                      <option value="3">2:00 AM</option>
-                      <option value="4">3:00 AM</option>
-                      <option value="5">4:00 AM</option>
-                      <option value="6">5:00 AM</option>
-                      <option value="7">6:00 AM</option>
-                      <option value="8">7:00 AM</option>
-                      <option value="8">8:00 AM</option>
-                      <option value="8">9:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="8">10:00 AM</option>
-                      <option value="1">11:00 AM</option>
-                      <option value="1">12:00 PM</option>
-                      <option value="2">1:00 PM</option>
-                      <option value="3">2:00 PM</option>
-                      <option value="4">3:00 PM</option>
-                      <option value="5">4:00 PM</option>
-                      <option value="6">5:00 PM</option>
-                      <option value="7">6:00 PM</option>
-                      <option value="8">7:00 PM</option>
-                      <option value="8">8:00 PM</option>
-                      <option value="8">9:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="8">10:00 PM</option>
-                      <option value="1">11:00 PM</option>
-                    </select>
+                    {{> Select_Form_Control name="driverReturntoUHEnd" placeholder="Latest"  options=timeOptions multiple=false }}
                   </div>
                 </div>
               </div>
             </div>
-            <div id="car" class="five wide column">
+            <div id="car" class="three wide column">
               <label>Car</label>
               <hr>
               <div class="field">
-                {{> Select_Form_Control name="carSeats" label="Car Seats Available" options=seatOptions multiple=false }}
+                {{> Select_Form_Control name="carSeats" placeholder="Car Seats Available" options=seatOptions multiple=false }}
               </div>
-              <div style="padding-top: 20px;"></div>
-              {{> Checkbox_Field label="Air Conditioned"}}
             </div>
           </div>
           <div class="row">
