@@ -31,32 +31,32 @@ Template.Schedule_Page.helpers({
   hours() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     return profile && [
-      { label: '12', value: '0', selected: false },
-      { label: '1', value: '1', selected: false },
-      { label: '2', value: '2', selected: false },
-      { label: '3', value: '3', selected: false },
-      { label: '4', value: '4', selected: false },
-      { label: '5', value: '5', selected: false },
-      { label: '6', value: '6', selected: false },
-      { label: '7', value: '7', selected: false },
-      { label: '8', value: '8', selected: false },
-      { label: '9', value: '9', selected: false },
-      { label: '10', value: '10', selected: false },
-      { label: '11', value: '11', selected: false }];
+      { label: '12', value: 0, selected: false },
+      { label: '1', value: 1, selected: false },
+      { label: '2', value: 2, selected: false },
+      { label: '3', value: 3, selected: false },
+      { label: '4', value: 4, selected: false },
+      { label: '5', value: 5, selected: false },
+      { label: '6', value: 6, selected: false },
+      { label: '7', value: 7, selected: false },
+      { label: '8', value: 8, selected: false },
+      { label: '9', value: 9, selected: false },
+      { label: '10', value: 10, selected: false },
+      { label: '11', value: 11, selected: false }];
   },
   minutes() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     return profile && [
-      { label: '00', value: '0', selected: false },
-      { label: '15', value: '1', selected: false },
-      { label: '30', value: '2', selected: false },
-      { label: '45', value: '3', selected: false }];
+      { label: '00', value: 0, selected: false },
+      { label: '15', value: 1, selected: false },
+      { label: '30', value: 2, selected: false },
+      { label: '45', value: 3, selected: false }];
   },
   time() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     return profile && [
-      { label: 'AM', value: '0', selected: false },
-      { label: 'PM', value: '1', selected: false }];
+      { label: 'AM', value: true, selected: false },
+      { label: 'PM', value: false, selected: false }];
   },
 });
 
@@ -64,5 +64,6 @@ Template.Schedule_Page.helpers({
 Template.Schedule_Page.events({
   'submit .schedule-data-form'(event, instance) {
     event.preventDefault();
+    console.log('hello!');
   },
 });
