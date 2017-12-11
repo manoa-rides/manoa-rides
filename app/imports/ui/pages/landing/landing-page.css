@@ -39,6 +39,10 @@
   font-weight: 600;
 }
 
+.ui centered rounded large image {
+  padding: 50px;
+}
+
 /*.item {*/
   /*font-size: 30px;*/
   /*font-weight: 600;*/
