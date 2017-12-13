@@ -98,11 +98,11 @@ Template.Schedule_Page.events({
     const thursdayEnd = parseInt((event.target.REH.value % 12) * 100, 10) + parseInt(event.target.REM.value, 10) + parseInt((event.target.REA.value - 1) * 1200, 10);
     const fridayStart = parseInt((event.target.FSH.value % 12) * 100, 10) + parseInt(event.target.FSM.value, 10) + parseInt((event.target.FSA.value - 1) * 1200, 10);
     const fridayEnd = parseInt((event.target.FEH.value % 12) * 100, 10) + parseInt(event.target.FEM.value, 10) + parseInt((event.target.FEA.value - 1) * 1200, 10);
-    rideTimes.push([mondayStart, mondayEnd]);
-    rideTimes.push([tuesdayStart, tuesdayEnd]);
-    rideTimes.push([wednesdayStart, wednesdayEnd]);
-    rideTimes.push([thursdayStart, thursdayEnd]);
-    rideTimes.push([fridayStart, fridayEnd]);
+    rideTimes.push(mondayStart, mondayEnd);
+    rideTimes.push(tuesdayStart, tuesdayEnd);
+    rideTimes.push(wednesdayStart, wednesdayEnd);
+    rideTimes.push(thursdayStart, thursdayEnd);
+    rideTimes.push(fridayStart, fridayEnd);
     console.log(rideTimes);
 
     const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes };

@@ -37,6 +37,7 @@ class ProfileCollection extends BaseCollection {
       seats: { type: Number, optional: true },
       carPicture: { type: SimpleSchema.RegEx.Url, optional: true },
       rideTimes: { type: Array, optional: true },
+      'rideTimes.$': { type: Number },
       owned: { type: Number, optional: true },
     }, { tracker: Tracker }));
   }
@@ -65,9 +66,9 @@ class ProfileCollection extends BaseCollection {
     // make sure required fields are OK.
     const checkPattern = { username: String, firstName: String, lastName: String,
       picture: String, phone: String, zipcode: String, bio: String, driver: Boolean,
-      car: String, seats: Number, owned: Number, rideTimes: Array, carPicture: String, };
+      car: String, seats: Number, owned: Number, carPicture: String, };
     check({ username, firstName, lastName, picture, phone, zipcode, bio, driver,
-      car, seats, owned, rideTimes, carPicture }, checkPattern);
+      car, seats, owned, carPicture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
