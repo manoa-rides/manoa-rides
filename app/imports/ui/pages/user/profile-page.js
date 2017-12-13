@@ -81,8 +81,7 @@ Template.Profile_Page.events({
     const seats = event.target.Seats.value;
     const owned = driver ? event.target.Owned.value : 0;
     const username = FlowRouter.getParam('username'); // schema requires username.
-    let rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
-    rideTimes = ['cool', 'wow'];
+    const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
 
     const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes };
 

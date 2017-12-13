@@ -1,0 +1,16 @@
+<template name="Home_Page">
+  {{#if Template.subscriptionsReady}}
+    <div class="ui center aligned container">
+      <div class="ui grid">
+        <div class="eight wide column">
+          <img class="ui centered large circular image" src="{{ profile.picture }}">
+        </div>
+        <div class="eight wide column">
+          <div class="ui fluid card">
+            {{ profile.firstName }} {{ profile.lastName }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

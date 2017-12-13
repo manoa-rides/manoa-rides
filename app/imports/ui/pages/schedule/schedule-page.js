@@ -28,10 +28,6 @@ Template.Schedule_Page.helpers({
   profile() {
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
-  MSH() {
-    const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
-    return (rideTimes[0][0] % 1200) / 100;
-  },
   hours() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     return profile && [
