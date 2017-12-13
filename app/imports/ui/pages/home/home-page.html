@@ -7,8 +7,75 @@
         </div>
         <div class="eight wide column">
           <div class="ui fluid card">
-            {{ profile.firstName }} {{ profile.lastName }}
+            <div class="content">
+              <div class="ui huge header">
+                {{ profile.firstName }} {{ profile.lastName }}
+              </div>
+            </div>
+            <div class="content">
+              <div class="left floated text">
+                <i class="call icon"></i>
+                Phone: {{ profile.phone }}
+              </div>
+              <div class="right floated text">
+                <i class="home icon"></i>
+                ZipCode: {{ profile.zipcode }}
+              </div>
+            </div>
+            <div class="content">
+              {{#if profile.driver}}
+                <div class="ui left aligned grid">
+                  <div class="six wide column">
+                    <div class="ui medium header">
+                      <i class="car icon"></i>
+                      Driver
+                    </div>
+                    <div class="ui list">
+                      <div class="item">Car: {{ profile.car }}</div>
+                      <div class="item">Seats: {{ profile.seats }}</div>
+                      <div class="item">Years Owned: {{ profile.owned }}</div>
+                    </div>
+                  </div>
+                  <div class="ten wide column">
+                    <img class="ui centered rounded image" src="{{ profile.carPicture }}">
+                  </div>
+                </div>
+              {{else}}
+                <div class="ui left aligned grid">
+                  <div class="sixteen wide column">
+                    <div class="ui medium header">
+                      <i class="male icon"></i>
+                      Rider
+                    </div>
+                    <div class="ui horizontal list">
+                      <div class="item">Preferred Car: {{ profile.car }}</div>
+                      <div class="item">Seats Needed: {{ profile.seats }}</div>
+                    </div>
+                  </div>
+                </div>
+              {{/if}}
+            </div>
+            <div class="content">
+              <div class="left floated text">
+                <i class="star icon"></i>
+                Interests:
+                {{#each interest in profile.interests}}
+                  <a style="margin-bottom: 2px" class="ui teal mini label">{{interest}}</a>
+                {{/each}}
+              </div>
+            </div>
+            <div class="content">
+              <a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a>
+              <a href="https://facebook.com/{{ profile.facebook }}"><i class="big facebook icon"></i></a>
+              <a href="https://instagram.com/{{ profile.instagram }}"><i class="big instagram icon"></i></a>
+              <a href="{{ profile.snapchat }}"><i class="big snapchat icon"></i></a>
+            </div>
           </div>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div class="ui card">
+          
         </div>
       </div>
     </div>

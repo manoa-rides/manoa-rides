@@ -82,8 +82,9 @@ Template.Profile_Page.events({
     const owned = driver ? event.target.Owned.value : 0;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
+    const carPicture = 'https://www.cstatic-images.com/stock/570x380/15/img-1276321340-1509471668915.jpg';
 
-    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes };
+    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes, carPicture };
 
     // Clear out any old validation errors.
     instance.context.reset();
