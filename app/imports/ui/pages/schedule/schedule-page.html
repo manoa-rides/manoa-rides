@@ -1,44 +1,62 @@
 <template name="Schedule_Page">
   {{#if Template.subscriptionsReady}}
     <div class="ui center aligned container">
-      <form class="ui equal width form schedule-data-form {{ successClass}} {{ errorClass }}">
+      <form class="ui equal width form schedule-data-form {{ successClass }} {{ errorClass }}">
         <div class="ui centered three cards">
           <div id="monday-card" class="ui green card">
             <div class="content">
               <div class="header">Monday</div>
             </div>
             <div class="content">
+              <div class="text" style="font-weight: bold">Start Time</div>
               <div class="fields">
-                {{> Select_Form_Control name="MSH" label="TEMP" placeholder="8" options=hours value=profile.mondayStart errorMessage=(fieldError "start")}}
-                {{> Select_Form_Control name="MSM" label="Start Time" placeholder="00" options=minutes value=profile.mondayStart errorMessage=(fieldError "start")}}
-                {{> Select_Form_Control name="MSA" label="TEMP" placeholder="AM" options=time value=profile.mondayStart errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MSH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MSM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MSA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
+              <div class="text" style="font-weight: bold">End Time</div>
               <div class="fields">
-                {{> Select_Form_Control name="MEH" label="TEMP" placeholder="8" options=hours value=profile.mondayStart errorMessage=(fieldError "start")}}
-                {{> Select_Form_Control name="MEM" label="End Time" placeholder="00" options=minutes value=profile.mondayStart errorMessage=(fieldError "start")}}
-                {{> Select_Form_Control name="MEA" label="TEMP" placeholder="AM" options=time value=profile.mondayStart errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MEH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MEM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="MEA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
             </div>
           </div>
           <div id="tuesday-card" class="ui green card">
             <div class="content">
               <div class="header">Tuesday</div>
-              <div class="field">
-                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+            </div>
+            <div class="content">
+              <div class="text" style="font-weight: bold">Start Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="TSH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="TSM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="TSA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
-              <div class="field">
-                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              <div class="text" style="font-weight: bold">End Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="TEH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="TEM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="TEA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
             </div>
           </div>
           <div id="wednesday-card" class="ui green card">
             <div class="content">
               <div class="header">Wednesday</div>
-              <div class="field">
-                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+            </div>
+            <div class="content">
+              <div class="text" style="font-weight: bold">Start Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="WSH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="WSM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="WSA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
-              <div class="field">
-                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              <div class="text" style="font-weight: bold">End Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="WEH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="WEM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="WEA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
             </div>
           </div>
@@ -47,31 +65,46 @@
           <div id="thursday-card" class="ui green card">
             <div class="content">
               <div class="header">Thursday</div>
-              <div class="field">
-                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+            </div>
+            <div class="content">
+              <div class="text" style="font-weight: bold">Start Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="RSH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="RSM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="RSA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
-              <div class="field">
-                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              <div class="text" style="font-weight: bold">End Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="REH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="REM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="REA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
             </div>
           </div>
           <div id="friday-card" class="ui green card">
             <div class="content">
               <div class="header">Friday</div>
-              <div class="field">
-                {{> Select_Form_Control name="Start" label="Start Time" placeholder="Start Time" options=times value=profile.mondayStart errorMessage=(fieldError "start")}}
+            </div>
+            <div class="content">
+              <div class="text" style="font-weight: bold">Start Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="FSH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="FSM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="FSA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
-              <div class="field">
-                {{> Select_Form_Control name="End" label="End Time" placeholder="End Time" options=times value=profile.mondayEnd errorMessage=(fieldError "end")}}
+              <div class="text" style="font-weight: bold">End Time</div>
+              <div class="fields">
+                {{> Select_Form_Control name="FEH" label="" placeholder="Hour" options=hours value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="FEM" label="" placeholder="Minute" options=minutes value="" errorMessage=(fieldError "start")}}
+                {{> Select_Form_Control name="FEA" label="" placeholder="A/PM" options=time value="" errorMessage=(fieldError "start")}}
               </div>
             </div>
           </div>
         </div>
-
-        <button class="ui green button" type="submit">Submit</button>
+        <button class="ui green button" type="submit" style="margin: 2em 0em 0em 0em">Submit</button>
         {{#if displaySuccessMessage}}
           <div class="ui success message">
-            <p>Profile data successfully updated.</p>
+            <p>Schedule successfully updated.</p>
           </div>
         {{/if}}
       </form>
