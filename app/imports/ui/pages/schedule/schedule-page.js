@@ -92,8 +92,17 @@ Template.Schedule_Page.events({
     const mondayEnd = parseInt((event.target.MEH.value % 12) * 100, 10) + parseInt(event.target.MEM.value, 10) + parseInt((event.target.MEA.value - 1) * 1200, 10);
     const tuesdayStart = parseInt((event.target.TSH.value % 12) * 100, 10) + parseInt(event.target.TSM.value, 10) + parseInt((event.target.TSA.value - 1) * 1200, 10);
     const tuesdayEnd = parseInt((event.target.TEH.value % 12) * 100, 10) + parseInt(event.target.TEM.value, 10) + parseInt((event.target.TEA.value - 1) * 1200, 10);
+    const wednesdayStart = parseInt((event.target.WSH.value % 12) * 100, 10) + parseInt(event.target.WSM.value, 10) + parseInt((event.target.WSA.value - 1) * 1200, 10);
+    const wednesdayEnd = parseInt((event.target.WEH.value % 12) * 100, 10) + parseInt(event.target.WEM.value, 10) + parseInt((event.target.WEA.value - 1) * 1200, 10);
+    const thursdayStart = parseInt((event.target.RSH.value % 12) * 100, 10) + parseInt(event.target.RSM.value, 10) + parseInt((event.target.RSA.value - 1) * 1200, 10);
+    const thursdayEnd = parseInt((event.target.REH.value % 12) * 100, 10) + parseInt(event.target.REM.value, 10) + parseInt((event.target.REA.value - 1) * 1200, 10);
+    const fridayStart = parseInt((event.target.FSH.value % 12) * 100, 10) + parseInt(event.target.FSM.value, 10) + parseInt((event.target.FSA.value - 1) * 1200, 10);
+    const fridayEnd = parseInt((event.target.FEH.value % 12) * 100, 10) + parseInt(event.target.FEM.value, 10) + parseInt((event.target.FEA.value - 1) * 1200, 10);
     rideTimes.push([mondayStart, mondayEnd]);
     rideTimes.push([tuesdayStart, tuesdayEnd]);
+    rideTimes.push([wednesdayStart, wednesdayEnd]);
+    rideTimes.push([thursdayStart, thursdayEnd]);
+    rideTimes.push([fridayStart, fridayEnd]);
     console.log(rideTimes);
 
     const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes };
