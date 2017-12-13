@@ -40,6 +40,11 @@ Template.Profile_Page.helpers({
   profile() {
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
+  seats() {
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const selectedInterests = profile.seats;
+    return profile && { label: profile.seats, selected: true };
+  },
   interests() {
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const selectedInterests = profile.interests;
@@ -76,8 +81,10 @@ Template.Profile_Page.events({
     const seats = event.target.Seats.value;
     const owned = driver ? event.target.Owned.value : 0;
     const username = FlowRouter.getParam('username'); // schema requires username.
+    let rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
+    rideTimes = ['cool', 'wow'];
 
-    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username };
+    const updatedProfileData = { firstName, lastName, picture, phone, zipcode, facebook, instagram, snapchat, interests, bio, driver, car, owned, seats, username, rideTimes };
 
     // Clear out any old validation errors.
     instance.context.reset();

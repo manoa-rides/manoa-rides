@@ -36,10 +36,8 @@ class ProfileCollection extends BaseCollection {
       car: { type: String, optional: true },
       seats: { type: Number, optional: true },
       carPicture: { type: SimpleSchema.RegEx.Url, optional: true },
-      goingTime: { type: Number, optional: true },
-      returnTime: { type: Number, optional: true },
+      rideTimes: { type: Array, optional: true },
       owned: { type: Number, optional: true },
-      accidents: { type: Number, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -63,13 +61,13 @@ class ProfileCollection extends BaseCollection {
    */
   define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '',
            zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false,
-           car = '', seats = 0, carPicture = '', owned = 0, accidents = 0, goingTime = 0, returnTime = 0 }) {
+           car = '', seats = 0, carPicture = '', owned = 0, rideTimes = [], }) {
     // make sure required fields are OK.
     const checkPattern = { username: String, firstName: String, lastName: String,
       picture: String, phone: String, zipcode: String, bio: String, driver: Boolean,
-      car: String, seats: Number, carPicture: String, goingTime: Number, returnTime: Number };
-    check({ firstName, lastName, picture, phone, zipcode, bio, driver,
-      car, seats, carPicture, username, goingTime, returnTime }, checkPattern);
+      car: String, seats: Number, owned: Number, rideTimes: Array, carPicture: String, };
+    check({ username, firstName, lastName, picture, phone, zipcode, bio, driver,
+      car, seats, owned, rideTimes, carPicture }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -83,9 +81,9 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, picture,
+    return this._collection.insert({ username, firstName, lastName, picture,
       phone, zipcode, facebook, instagram, snapchat, interests, bio,
-      driver, car, seats, owned, accidents, carPicture, username, goingTime, returnTime });
+      driver, car, seats, owned, rideTimes, carPicture });
   }
 
   /**
@@ -109,12 +107,10 @@ class ProfileCollection extends BaseCollection {
     const seats = doc.seats;
     const carPicture = doc.carPicture;
     const owned = doc.owned;
-    const accidents = doc.accidents;
     const username = doc.username;
-    const goingTime = doc.goingTime;
-    const returnTime = doc.returnTime;
-    return { firstName, lastName, picture, zipcode, facebook, instagram, snapchat,
-      interests, bio, driver, car, seats, owned, carPicture, accidents, username, goingTime, returnTime };
+    const rideTimes = doc.rideTimes;
+    return { username, firstName, lastName, picture, zipcode, facebook, instagram, snapchat,
+      interests, bio, driver, car, seats, owned, rideTimes, carPicture };
   }
 }
 
