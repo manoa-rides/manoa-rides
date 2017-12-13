@@ -32,10 +32,23 @@ Template.Home_Page.helpers({
     return ['12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
       '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm'];
   },
-  colorCell(day, time) {
+  startTime(day) {
     const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
-    return time === ;
-  }
+    console.log(rideTimes);
+    const time = rideTimes[day * 2];
+    const hour = Math.trunc(time / 100) % 12 === 0 ? '12' : ((Math.trunc(time / 100)) % 12).toString(10);
+    const minute = (((time % 100) / 25) * 15).toString(10);
+    const apm = time < 1200 ? 'AM' : 'PM';
+    return `${hour}:${minute} ${apm}`;
+  },
+  endTime(day) {
+    const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
+    const time = rideTimes[(day * 2) + 1];
+    const hour = ((Math.trunc(time / 100)) % 12).toString(10);
+    const minute = (((time % 100) / 25) * 15).toString(10);
+    const apm = time < 1200 ? 'AM' : 'PM';
+    return `${hour}:${minute} ${apm}`;
+  },
 });
 
 
