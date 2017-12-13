@@ -62,11 +62,11 @@ class ProfileCollection extends BaseCollection {
    */
   define({ firstName = '', lastName = '', username, bio = '', picture = '', phone = '',
            zipcode = '', facebook = '', instagram = '', snapchat = '', interests = [], driver = false,
-           car = '', seats = 0, carPicture = '', owned = 0, rideTimes = [], }) {
+           car = '', seats = 0, carPicture = '', owned = 0, rideTimes = [] }) {
     // make sure required fields are OK.
     const checkPattern = { username: String, firstName: String, lastName: String,
       picture: String, phone: String, zipcode: String, bio: String, driver: Boolean,
-      car: String, seats: Number, owned: Number, carPicture: String, };
+      car: String, seats: Number, owned: Number, carPicture: String };
     check({ username, firstName, lastName, picture, phone, zipcode, bio, driver,
       car, seats, owned, carPicture }, checkPattern);
 

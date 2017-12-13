@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
@@ -34,18 +33,17 @@ Template.Home_Page.helpers({
   },
   startTime(day) {
     const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
-    console.log(rideTimes);
     const time = rideTimes[day * 2];
     const hour = Math.trunc(time / 100) % 12 === 0 ? '12' : ((Math.trunc(time / 100)) % 12).toString(10);
-    const minute = (((time % 100) / 25) * 15).toString(10);
+    const minute = ((time % 100) / 25) === 0 ? '00' : (((time % 100) / 25) * 15).toString(10);
     const apm = time < 1200 ? 'AM' : 'PM';
     return `${hour}:${minute} ${apm}`;
   },
   endTime(day) {
     const rideTimes = Profiles.findDoc(FlowRouter.getParam('username')).rideTimes;
     const time = rideTimes[(day * 2) + 1];
-    const hour = ((Math.trunc(time / 100)) % 12).toString(10);
-    const minute = (((time % 100) / 25) * 15).toString(10);
+    const hour = Math.trunc(time / 100) % 12 === 0 ? '12' : ((Math.trunc(time / 100)) % 12).toString(10);
+    const minute = ((time % 100) / 25) === 0 ? '00' : (((time % 100) / 25) * 15).toString(10);
     const apm = time < 1200 ? 'AM' : 'PM';
     return `${hour}:${minute} ${apm}`;
   },
